@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/new.unity
+    guid: d6812631fd3e9004d8736f02300d2822
+  - enabled: 0
+    path: Assets/Scenes/OVRpassthrough.unity
+    guid: ef0bc59003966154b827c390c343c857
+  - enabled: 0
     path: Assets/Scenes/MRTK2Scene.unity
     guid: 35fa2dbd95604e346a07c59ec049b513
   m_configObjects:
