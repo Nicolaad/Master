@@ -353,7 +353,7 @@ MonoBehaviour:
   rotateLerpTime: 0.001
   scaleLerpTime: 0.001
   enableConstraints: 1
-  constraintsManager: {fileID: 612495219}
+  constraintsManager: {fileID: 2124663598}
   elasticsManager: {fileID: 0}
   onManipulationStarted:
     m_PersistentCalls:
@@ -654,6 +654,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8383274142881980316, guid: ce8e8694d943c1142be8fb815c76a95e, type: 3}
   m_PrefabInstance: {fileID: 104396216}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &273812423 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8384281664243877428, guid: ce8e8694d943c1142be8fb815c76a95e, type: 3}
+  m_PrefabInstance: {fileID: 104396216}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &273812424
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -667,7 +672,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   autoConstraintSelection: 1
-  selectedConstraints: []
+  selectedConstraints:
+  - {fileID: 1479853165}
 --- !u!114 &273812429
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -680,9 +686,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 181cd563a8349c34ea8978b0bc8d9c7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hostTransform: {fileID: 0}
+  hostTransform: {fileID: 273812423}
   manipulationType: 3
-  twoHandedManipulationType: 7
+  twoHandedManipulationType: 3
   allowFarManipulation: 1
   useForcesForNearManipulation: 0
   oneHandRotationModeNear: 1
@@ -697,7 +703,7 @@ MonoBehaviour:
   rotateLerpTime: 0.001
   scaleLerpTime: 0.001
   enableConstraints: 1
-  constraintsManager: {fileID: 612495219}
+  constraintsManager: {fileID: 1479853164}
   elasticsManager: {fileID: 0}
   onManipulationStarted:
     m_PersistentCalls:
@@ -791,7 +797,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   autoConstraintSelection: 1
-  selectedConstraints: []
+  selectedConstraints:
+  - {fileID: 1479853165}
 --- !u!114 &325881329
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -806,7 +813,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hostTransform: {fileID: 0}
   manipulationType: 3
-  twoHandedManipulationType: 7
+  twoHandedManipulationType: 3
   allowFarManipulation: 1
   useForcesForNearManipulation: 0
   oneHandRotationModeNear: 1
@@ -821,7 +828,7 @@ MonoBehaviour:
   rotateLerpTime: 0.001
   scaleLerpTime: 0.001
   enableConstraints: 1
-  constraintsManager: {fileID: 612495219}
+  constraintsManager: {fileID: 1479853164}
   elasticsManager: {fileID: 0}
   onManipulationStarted:
     m_PersistentCalls:
@@ -1070,7 +1077,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   autoConstraintSelection: 1
-  selectedConstraints: []
+  selectedConstraints:
+  - {fileID: 1479853165}
 --- !u!114 &480400147
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1085,7 +1093,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hostTransform: {fileID: 0}
   manipulationType: 3
-  twoHandedManipulationType: 7
+  twoHandedManipulationType: 3
   allowFarManipulation: 1
   useForcesForNearManipulation: 0
   oneHandRotationModeNear: 1
@@ -1100,7 +1108,7 @@ MonoBehaviour:
   rotateLerpTime: 0.001
   scaleLerpTime: 0.001
   enableConstraints: 1
-  constraintsManager: {fileID: 612495219}
+  constraintsManager: {fileID: 1479853164}
   elasticsManager: {fileID: 0}
   onManipulationStarted:
     m_PersistentCalls:
@@ -1132,7 +1140,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   autoConstraintSelection: 1
-  selectedConstraints: []
+  selectedConstraints:
+  - {fileID: 1479853165}
 --- !u!114 &581708117
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1147,7 +1156,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hostTransform: {fileID: 0}
   manipulationType: 3
-  twoHandedManipulationType: 7
+  twoHandedManipulationType: 3
   allowFarManipulation: 1
   useForcesForNearManipulation: 0
   oneHandRotationModeNear: 1
@@ -1162,7 +1171,7 @@ MonoBehaviour:
   rotateLerpTime: 0.001
   scaleLerpTime: 0.001
   enableConstraints: 1
-  constraintsManager: {fileID: 612495219}
+  constraintsManager: {fileID: 1479853164}
   elasticsManager: {fileID: 0}
   onManipulationStarted:
     m_PersistentCalls:
@@ -1310,6 +1319,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8383274143565232308, guid: ce8e8694d943c1142be8fb815c76a95e, type: 3}
   m_PrefabInstance: {fileID: 104396216}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &654215610 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8384281663048081692, guid: ce8e8694d943c1142be8fb815c76a95e, type: 3}
+  m_PrefabInstance: {fileID: 104396216}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &654215611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1323,7 +1337,44 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   autoConstraintSelection: 1
-  selectedConstraints: []
+  selectedConstraints:
+  - {fileID: 1479853165}
+--- !u!114 &654215612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 654215609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 820f94d57893bf843a0cd6d93313fe6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  handType: 3
+  proximityType: 3
+  executionOrder: 0
+  scaleMinimum: 0.2
+  scaleMaximum: 2
+  relativeToInitialState: 1
+--- !u!114 &654215613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 654215609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 820f94d57893bf843a0cd6d93313fe6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  handType: 3
+  proximityType: 3
+  executionOrder: 0
+  scaleMinimum: 0.2
+  scaleMaximum: 2
+  relativeToInitialState: 1
 --- !u!114 &654215616
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1336,9 +1387,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 181cd563a8349c34ea8978b0bc8d9c7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hostTransform: {fileID: 0}
+  hostTransform: {fileID: 654215610}
   manipulationType: 3
-  twoHandedManipulationType: 7
+  twoHandedManipulationType: 3
   allowFarManipulation: 1
   useForcesForNearManipulation: 0
   oneHandRotationModeNear: 1
@@ -1353,7 +1404,7 @@ MonoBehaviour:
   rotateLerpTime: 0.001
   scaleLerpTime: 0.001
   enableConstraints: 1
-  constraintsManager: {fileID: 612495219}
+  constraintsManager: {fileID: 1479853164}
   elasticsManager: {fileID: 0}
   onManipulationStarted:
     m_PersistentCalls:
@@ -1434,6 +1485,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8382549295979065780, guid: ce8e8694d943c1142be8fb815c76a95e, type: 3}
   m_PrefabInstance: {fileID: 104396216}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &799977731 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8382549295979556244, guid: ce8e8694d943c1142be8fb815c76a95e, type: 3}
+  m_PrefabInstance: {fileID: 104396216}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &799977732
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1447,7 +1503,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   autoConstraintSelection: 1
-  selectedConstraints: []
+  selectedConstraints:
+  - {fileID: 1479853165}
 --- !u!114 &799977737
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1460,9 +1517,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 181cd563a8349c34ea8978b0bc8d9c7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hostTransform: {fileID: 0}
+  hostTransform: {fileID: 799977731}
   manipulationType: 3
-  twoHandedManipulationType: 7
+  twoHandedManipulationType: 3
   allowFarManipulation: 1
   useForcesForNearManipulation: 0
   oneHandRotationModeNear: 1
@@ -1477,7 +1534,7 @@ MonoBehaviour:
   rotateLerpTime: 0.001
   scaleLerpTime: 0.001
   enableConstraints: 1
-  constraintsManager: {fileID: 612495219}
+  constraintsManager: {fileID: 1479853164}
   elasticsManager: {fileID: 0}
   onManipulationStarted:
     m_PersistentCalls:
@@ -1496,6 +1553,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8382281288260275000, guid: ce8e8694d943c1142be8fb815c76a95e, type: 3}
   m_PrefabInstance: {fileID: 104396216}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &846523390 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8378219025586246312, guid: ce8e8694d943c1142be8fb815c76a95e, type: 3}
+  m_PrefabInstance: {fileID: 104396216}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &846523391
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1509,7 +1571,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   autoConstraintSelection: 1
-  selectedConstraints: []
+  selectedConstraints:
+  - {fileID: 1479853165}
 --- !u!114 &846523396
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1522,9 +1585,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 181cd563a8349c34ea8978b0bc8d9c7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hostTransform: {fileID: 0}
+  hostTransform: {fileID: 846523390}
   manipulationType: 3
-  twoHandedManipulationType: 7
+  twoHandedManipulationType: 3
   allowFarManipulation: 1
   useForcesForNearManipulation: 0
   oneHandRotationModeNear: 1
@@ -1539,7 +1602,7 @@ MonoBehaviour:
   rotateLerpTime: 0.001
   scaleLerpTime: 0.001
   enableConstraints: 1
-  constraintsManager: {fileID: 612495219}
+  constraintsManager: {fileID: 1479853164}
   elasticsManager: {fileID: 0}
   onManipulationStarted:
     m_PersistentCalls:
@@ -1682,6 +1745,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8383274143011783103, guid: ce8e8694d943c1142be8fb815c76a95e, type: 3}
   m_PrefabInstance: {fileID: 104396216}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &981809972 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8384281663601776663, guid: ce8e8694d943c1142be8fb815c76a95e, type: 3}
+  m_PrefabInstance: {fileID: 104396216}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &981809973
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1695,7 +1763,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   autoConstraintSelection: 1
-  selectedConstraints: []
+  selectedConstraints:
+  - {fileID: 1479853165}
 --- !u!114 &981809978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1708,9 +1777,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 181cd563a8349c34ea8978b0bc8d9c7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hostTransform: {fileID: 0}
+  hostTransform: {fileID: 981809972}
   manipulationType: 3
-  twoHandedManipulationType: 7
+  twoHandedManipulationType: 3
   allowFarManipulation: 1
   useForcesForNearManipulation: 0
   oneHandRotationModeNear: 1
@@ -1725,7 +1794,7 @@ MonoBehaviour:
   rotateLerpTime: 0.001
   scaleLerpTime: 0.001
   enableConstraints: 1
-  constraintsManager: {fileID: 612495219}
+  constraintsManager: {fileID: 1479853164}
   elasticsManager: {fileID: 0}
   onManipulationStarted:
     m_PersistentCalls:
@@ -1913,6 +1982,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8382549296287589399, guid: ce8e8694d943c1142be8fb815c76a95e, type: 3}
   m_PrefabInstance: {fileID: 104396216}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1073761249 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8382549296287561783, guid: ce8e8694d943c1142be8fb815c76a95e, type: 3}
+  m_PrefabInstance: {fileID: 104396216}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1073761250
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1926,7 +2000,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   autoConstraintSelection: 1
-  selectedConstraints: []
+  selectedConstraints:
+  - {fileID: 1479853165}
 --- !u!114 &1073761255
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1939,9 +2014,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 181cd563a8349c34ea8978b0bc8d9c7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hostTransform: {fileID: 0}
+  hostTransform: {fileID: 1073761249}
   manipulationType: 3
-  twoHandedManipulationType: 7
+  twoHandedManipulationType: 3
   allowFarManipulation: 1
   useForcesForNearManipulation: 0
   oneHandRotationModeNear: 1
@@ -1956,7 +2031,7 @@ MonoBehaviour:
   rotateLerpTime: 0.001
   scaleLerpTime: 0.001
   enableConstraints: 1
-  constraintsManager: {fileID: 612495219}
+  constraintsManager: {fileID: 1479853164}
   elasticsManager: {fileID: 0}
   onManipulationStarted:
     m_PersistentCalls:
@@ -2099,6 +2174,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8382281288206029763, guid: ce8e8694d943c1142be8fb815c76a95e, type: 3}
   m_PrefabInstance: {fileID: 104396216}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1269338622 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8378219025388800595, guid: ce8e8694d943c1142be8fb815c76a95e, type: 3}
+  m_PrefabInstance: {fileID: 104396216}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1269338623
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2112,7 +2192,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   autoConstraintSelection: 1
-  selectedConstraints: []
+  selectedConstraints:
+  - {fileID: 1479853165}
 --- !u!114 &1269338628
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2125,9 +2206,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 181cd563a8349c34ea8978b0bc8d9c7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hostTransform: {fileID: 0}
+  hostTransform: {fileID: 1269338622}
   manipulationType: 3
-  twoHandedManipulationType: 7
+  twoHandedManipulationType: 3
   allowFarManipulation: 1
   useForcesForNearManipulation: 0
   oneHandRotationModeNear: 1
@@ -2142,7 +2223,7 @@ MonoBehaviour:
   rotateLerpTime: 0.001
   scaleLerpTime: 0.001
   enableConstraints: 1
-  constraintsManager: {fileID: 612495219}
+  constraintsManager: {fileID: 1479853164}
   elasticsManager: {fileID: 0}
   onManipulationStarted:
     m_PersistentCalls:
@@ -2161,6 +2242,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8383287893540566128, guid: ce8e8694d943c1142be8fb815c76a95e, type: 3}
   m_PrefabInstance: {fileID: 104396216}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1272937163 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8378000983380344090, guid: ce8e8694d943c1142be8fb815c76a95e, type: 3}
+  m_PrefabInstance: {fileID: 104396216}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1272937164
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2174,7 +2260,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   autoConstraintSelection: 1
-  selectedConstraints: []
+  selectedConstraints:
+  - {fileID: 1479853165}
 --- !u!114 &1272937169
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2187,9 +2274,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 181cd563a8349c34ea8978b0bc8d9c7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hostTransform: {fileID: 0}
+  hostTransform: {fileID: 1272937163}
   manipulationType: 3
-  twoHandedManipulationType: 7
+  twoHandedManipulationType: 3
   allowFarManipulation: 1
   useForcesForNearManipulation: 0
   oneHandRotationModeNear: 1
@@ -2204,7 +2291,7 @@ MonoBehaviour:
   rotateLerpTime: 0.001
   scaleLerpTime: 0.001
   enableConstraints: 1
-  constraintsManager: {fileID: 612495219}
+  constraintsManager: {fileID: 1479853164}
   elasticsManager: {fileID: 0}
   onManipulationStarted:
     m_PersistentCalls:
@@ -2347,6 +2434,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8381238239054958822, guid: ce8e8694d943c1142be8fb815c76a95e, type: 3}
   m_PrefabInstance: {fileID: 104396216}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1479853163 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8384510101430747692, guid: ce8e8694d943c1142be8fb815c76a95e, type: 3}
+  m_PrefabInstance: {fileID: 104396216}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1479853164
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2360,7 +2452,44 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   autoConstraintSelection: 1
-  selectedConstraints: []
+  selectedConstraints:
+  - {fileID: 1479853165}
+--- !u!114 &1479853165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1479853162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 820f94d57893bf843a0cd6d93313fe6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  handType: 3
+  proximityType: 3
+  executionOrder: 0
+  scaleMinimum: 0.2
+  scaleMaximum: 2
+  relativeToInitialState: 1
+--- !u!114 &1479853166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1479853162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 820f94d57893bf843a0cd6d93313fe6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  handType: 3
+  proximityType: 3
+  executionOrder: 0
+  scaleMinimum: 0.2
+  scaleMaximum: 2
+  relativeToInitialState: 1
 --- !u!114 &1479853169
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2373,9 +2502,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 181cd563a8349c34ea8978b0bc8d9c7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hostTransform: {fileID: 0}
+  hostTransform: {fileID: 1479853163}
   manipulationType: 3
-  twoHandedManipulationType: 7
+  twoHandedManipulationType: 3
   allowFarManipulation: 1
   useForcesForNearManipulation: 0
   oneHandRotationModeNear: 1
@@ -2390,7 +2519,7 @@ MonoBehaviour:
   rotateLerpTime: 0.001
   scaleLerpTime: 0.001
   enableConstraints: 1
-  constraintsManager: {fileID: 612495219}
+  constraintsManager: {fileID: 1479853164}
   elasticsManager: {fileID: 0}
   onManipulationStarted:
     m_PersistentCalls:
@@ -2603,7 +2732,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 181cd563a8349c34ea8978b0bc8d9c7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hostTransform: {fileID: 0}
+  hostTransform: {fileID: 1629293572}
   manipulationType: 3
   twoHandedManipulationType: 7
   allowFarManipulation: 1
@@ -2620,7 +2749,7 @@ MonoBehaviour:
   rotateLerpTime: 0.001
   scaleLerpTime: 0.001
   enableConstraints: 1
-  constraintsManager: {fileID: 0}
+  constraintsManager: {fileID: 1629293574}
   elasticsManager: {fileID: 0}
   onManipulationStarted:
     m_PersistentCalls:
@@ -2959,6 +3088,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8383274142846860541, guid: ce8e8694d943c1142be8fb815c76a95e, type: 3}
   m_PrefabInstance: {fileID: 104396216}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1892470209 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8384281664145843541, guid: ce8e8694d943c1142be8fb815c76a95e, type: 3}
+  m_PrefabInstance: {fileID: 104396216}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1892470210
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2972,7 +3106,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   autoConstraintSelection: 1
-  selectedConstraints: []
+  selectedConstraints:
+  - {fileID: 1479853165}
 --- !u!114 &1892470215
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2985,9 +3120,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 181cd563a8349c34ea8978b0bc8d9c7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hostTransform: {fileID: 0}
+  hostTransform: {fileID: 1892470209}
   manipulationType: 3
-  twoHandedManipulationType: 7
+  twoHandedManipulationType: 3
   allowFarManipulation: 1
   useForcesForNearManipulation: 0
   oneHandRotationModeNear: 1
@@ -3002,7 +3137,7 @@ MonoBehaviour:
   rotateLerpTime: 0.001
   scaleLerpTime: 0.001
   enableConstraints: 1
-  constraintsManager: {fileID: 612495219}
+  constraintsManager: {fileID: 1479853164}
   elasticsManager: {fileID: 0}
   onManipulationStarted:
     m_PersistentCalls:
@@ -3083,6 +3218,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8381803253957271846, guid: ce8e8694d943c1142be8fb815c76a95e, type: 3}
   m_PrefabInstance: {fileID: 104396216}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1924448261 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8377981861395226854, guid: ce8e8694d943c1142be8fb815c76a95e, type: 3}
+  m_PrefabInstance: {fileID: 104396216}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1924448262
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3096,7 +3236,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   autoConstraintSelection: 1
-  selectedConstraints: []
+  selectedConstraints:
+  - {fileID: 1479853165}
 --- !u!114 &1924448267
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3109,9 +3250,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 181cd563a8349c34ea8978b0bc8d9c7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hostTransform: {fileID: 0}
+  hostTransform: {fileID: 1924448261}
   manipulationType: 3
-  twoHandedManipulationType: 7
+  twoHandedManipulationType: 3
   allowFarManipulation: 1
   useForcesForNearManipulation: 0
   oneHandRotationModeNear: 1
@@ -3126,7 +3267,7 @@ MonoBehaviour:
   rotateLerpTime: 0.001
   scaleLerpTime: 0.001
   enableConstraints: 1
-  constraintsManager: {fileID: 612495219}
+  constraintsManager: {fileID: 1479853164}
   elasticsManager: {fileID: 0}
   onManipulationStarted:
     m_PersistentCalls:
@@ -3563,7 +3704,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   autoConstraintSelection: 1
-  selectedConstraints: []
+  selectedConstraints:
+  - {fileID: 1479853165}
 --- !u!114 &2105544593
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3578,7 +3720,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hostTransform: {fileID: 0}
   manipulationType: 3
-  twoHandedManipulationType: 7
+  twoHandedManipulationType: 3
   allowFarManipulation: 1
   useForcesForNearManipulation: 0
   oneHandRotationModeNear: 1
@@ -3593,7 +3735,7 @@ MonoBehaviour:
   rotateLerpTime: 0.001
   scaleLerpTime: 0.001
   enableConstraints: 1
-  constraintsManager: {fileID: 612495219}
+  constraintsManager: {fileID: 1479853164}
   elasticsManager: {fileID: 0}
   onManipulationStarted:
     m_PersistentCalls:
@@ -3612,6 +3754,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8382268562136782285, guid: ce8e8694d943c1142be8fb815c76a95e, type: 3}
   m_PrefabInstance: {fileID: 104396216}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &2124663597 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8377899055992914843, guid: ce8e8694d943c1142be8fb815c76a95e, type: 3}
+  m_PrefabInstance: {fileID: 104396216}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &2124663598
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3625,7 +3772,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   autoConstraintSelection: 1
-  selectedConstraints: []
+  selectedConstraints:
+  - {fileID: 1479853165}
 --- !u!114 &2124663603
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3638,9 +3786,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 181cd563a8349c34ea8978b0bc8d9c7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hostTransform: {fileID: 0}
+  hostTransform: {fileID: 2124663597}
   manipulationType: 3
-  twoHandedManipulationType: 7
+  twoHandedManipulationType: 3
   allowFarManipulation: 1
   useForcesForNearManipulation: 0
   oneHandRotationModeNear: 1
@@ -3655,7 +3803,7 @@ MonoBehaviour:
   rotateLerpTime: 0.001
   scaleLerpTime: 0.001
   enableConstraints: 1
-  constraintsManager: {fileID: 612495219}
+  constraintsManager: {fileID: 1479853164}
   elasticsManager: {fileID: 0}
   onManipulationStarted:
     m_PersistentCalls:

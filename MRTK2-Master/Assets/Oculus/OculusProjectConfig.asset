@@ -18,6 +18,7 @@ MonoBehaviour:
   handTrackingFrequency: 0
   handTrackingVersion: 0
   anchorSupport: 0
+  sharedAnchorSupport: 0
   renderModelSupport: 0
   trackedKeyboardSupport: 0
   bodyTrackingSupport: 0
@@ -30,5 +31,5 @@ MonoBehaviour:
   focusAware: 1
   requiresSystemKeyboard: 0
   experimentalFeaturesEnabled: 0
-  insightPassthroughEnabled: 0
+  insightPassthroughEnabled: 1
   systemSplashScreen: {fileID: 0}

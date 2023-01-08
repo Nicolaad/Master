@@ -115,7 +115,7 @@ MonoBehaviour:
       reference: Microsoft.MixedReality.Toolkit.XRSDK.OpenXR.OculusController, Microsoft.MixedReality.Toolkit.Providers.OpenXR
     handedness: 1
     usePlatformModels: 1
-    platformModelMaterial: {fileID: 0}
+    platformModelMaterial: {fileID: 2100000, guid: 159194f8c47a59b44b6aeedaa2eaf336, type: 2}
     overrideModel: {fileID: 1370450866519632, guid: b7913d8b23c647f40a6cf01618dfa9cc, type: 3}
     controllerVisualizationType:
       reference: Microsoft.MixedReality.Toolkit.Input.WindowsMixedRealityControllerVisualizer,
