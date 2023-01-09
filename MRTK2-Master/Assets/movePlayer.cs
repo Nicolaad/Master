@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 
-public class movePlayer : MonoBehaviour
+public class movePlayer : NetworkBehaviour
 {
      public float speed = 5;
  public float gravity = -5;
@@ -14,6 +15,14 @@ public class movePlayer : MonoBehaviour
  void Start()
  {
      controller = GetComponent<CharacterController>();
+ }
+
+
+ public override void OnNetworkSpawn(){
+    if(!IsOwner) {
+            Destroy(this);
+        }
+
  }
  
  void Update()
