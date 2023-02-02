@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/netcode.unity
+    guid: 2ca78ccd8a5bdfc44824d367b9a9e8d6
+  - enabled: 0
     path: Assets/Scenes/MRTK2Scene.unity
     guid: 35fa2dbd95604e346a07c59ec049b513
   m_configObjects:
