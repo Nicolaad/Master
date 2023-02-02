@@ -12,7 +12,7 @@ using UnityEngine;
 public class TestRelay : MonoBehaviour
 {
     // Start is called before the first frame update
-    async void Start()
+    public async void Start()
     {
         await UnityServices.InitializeAsync();
         AuthenticationService.Instance.SignedIn += () =>
@@ -24,7 +24,7 @@ public class TestRelay : MonoBehaviour
     }
 
 
-    private async void CreateRelay() {
+    public static async void CreateRelay() {
         try
         {
             Allocation allocation = await RelayService.Instance.CreateAllocationAsync(3); // max number of clients
@@ -47,7 +47,7 @@ public class TestRelay : MonoBehaviour
     }
 
 
-    private async void JoinRelay(string joinCode) {
+    public static async void JoinRelay(string joinCode) {
         try
         {
             Debug.Log("joining relay with " + joinCode);
