@@ -11,6 +11,11 @@ public class PlayerNetwork : NetworkBehaviour
         
     }
 
+   
+
+    [SerializeField] private Transform spawnedObjectPrefab;
+     private Transform spawnedObjectTransform;
+
     // Update is called once per frame
     void Update()
     {
@@ -25,6 +30,15 @@ public class PlayerNetwork : NetworkBehaviour
 
         float moveSpeed = 3f;
         transform.position += moveDir * moveSpeed * Time.deltaTime;
+
+        if(Input.GetKeyDown(KeyCode.T)) {
+            spawnedObjectTransform = Instantiate(spawnedObjectPrefab);
+            spawnedObjectPrefab.GetComponent<NetworkObject>().Spawn(true);
+        }
+
+        if(Input.GetKeyDown(KeyCode.Y)) {
+            Destroy(spawnedObjectTransform.gameObject);
+        }
         
     }
 }
