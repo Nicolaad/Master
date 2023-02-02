@@ -1,0 +1,11 @@
+{
+    "name": "RelayUTP",
+    "references": [
+        "Unity.Collections",
+        "Unity.Services.Core",
+        "Unity.Services.Relay",
+        "Unity.Services.Authentication",
+        "Unity.Networking.Transport"
+    ],
+    "allowUnsafeCode": true
+}

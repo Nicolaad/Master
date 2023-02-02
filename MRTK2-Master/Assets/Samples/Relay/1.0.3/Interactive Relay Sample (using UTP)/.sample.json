@@ -1,0 +1,5 @@
+{
+	"displayName": "Interactive Relay Sample (using UTP)",
+	"description": "A sample showcasing the features of the Relay SDK that can be tested with multiple clients. Has a persistent connection to the relay server using UTP.",
+	"createSeparatePackage": false
+}
