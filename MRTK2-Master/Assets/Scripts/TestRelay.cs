@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -8,9 +9,17 @@ using Unity.Services.Core;
 using Unity.Services.Relay;
 using Unity.Services.Relay.Models;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TestRelay : MonoBehaviour
 {
+
+    [SerializeField]
+    private Text inputObject;
+
+    Button hostButton;
+    InputField inputcode;
+    Button joinButton;
     // Start is called before the first frame update
     public async void Start()
     {
@@ -21,6 +30,13 @@ public class TestRelay : MonoBehaviour
         };
         await AuthenticationService.Instance.SignInAnonymouslyAsync();
 
+
+
+        hostButton = GameObject.Find("Start Host").GetComponent<Button>();
+        hostButton.onClick.AddListener(CreateRelay);
+        joinButton = GameObject.Find("Join Button").GetComponent<Button>();
+        joinButton.onClick.AddListener(delegate { JoinRelay(); });
+
     }
 
 
@@ -29,7 +45,7 @@ public class TestRelay : MonoBehaviour
         {
             Allocation allocation = await RelayService.Instance.CreateAllocationAsync(3); // max number of clients
             string joinCode = await RelayService.Instance.GetJoinCodeAsync(allocation.AllocationId);
-            Debug.Log(joinCode);
+            Debug.Log("Joincode " + joinCode);
 
             NetworkManager.Singleton.GetComponent<UnityTransport>().SetHostRelayData(
                 allocation.RelayServer.IpV4,
@@ -40,6 +56,7 @@ public class TestRelay : MonoBehaviour
             );
 
             NetworkManager.Singleton.StartHost();
+            Debug.Log("Host started");
         }
         catch (RelayServiceException e) {
             Debug.Log(e);
@@ -47,9 +64,10 @@ public class TestRelay : MonoBehaviour
     }
 
 
-    public static async void JoinRelay(string joinCode) {
+    public async void JoinRelay() {
         try
         {
+            string joinCode = inputObject.text;
             Debug.Log("joining relay with " + joinCode);
             JoinAllocation joinAllocation = await RelayService.Instance.JoinAllocationAsync(joinCode);
 
@@ -72,6 +90,5 @@ public class TestRelay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
     }
 }

@@ -21,7 +21,7 @@ public class startSession : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.P)) {
             Debug.Log("joining relay");
-            TestRelay.JoinRelay("KWD");
+            //TestRelay.JoinRelay();
         }
     }
 }
