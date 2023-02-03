@@ -19,7 +19,7 @@ MonoBehaviour:
     - MixedRealityToolkit_Editor_RunOptimalConfig
     - MixedRealityToolkit_Editor_NullDataProviders
     - _MixedRealityToolkit_Editor_AutoEnableUWPCapabilities
-    values: 0001010001
+    values: 0101010001
   intPreferences:
     keys:
     - _MixedRealityToolkit_Editor_ConfiguratorState
