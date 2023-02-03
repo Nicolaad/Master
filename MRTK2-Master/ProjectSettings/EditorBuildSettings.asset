@@ -15,5 +15,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Relay.unity
     guid: 8f5f4a49151604346a67444a43c74c5a
   m_configObjects:
+    Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 525812292293e7f44ac6e69ad4b04ec4, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: ac3582204b9667b47b2ce5d72b5b97a1, type: 2}
     com.unity.xr.openxr.settings4: {fileID: 11400000, guid: 4c922beb1d1ff7f4fa17404b03cd0a5f, type: 2}
