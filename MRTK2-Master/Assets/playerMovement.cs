@@ -20,7 +20,7 @@ public class playerMovement : NetworkBehaviour {
         if (Input.GetKeyDown(KeyCode.A)) moveDir.x = -.1f;
         if (Input.GetKeyDown(KeyCode.D)) moveDir.x = +.1f;
 
-        float moveSpeed = 10f;
+        float moveSpeed = 20f;
         transform.position += moveDir * moveSpeed * Time.deltaTime;
     }
 }
