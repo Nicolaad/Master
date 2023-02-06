@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/relay.unity
+    guid: fc3cfdc59b6ac5d48b20dd385f874eab
+  - enabled: 0
     path: Assets/Scenes/MRTK2Scene.unity
     guid: 35fa2dbd95604e346a07c59ec049b513
   m_configObjects:
