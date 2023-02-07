@@ -136,9 +136,8 @@ PlayerSettings:
     Others: 1
   bundleVersion: 0.1
   preloadedAssets:
-  - {fileID: 11400000, guid: 525812292293e7f44ac6e69ad4b04ec4, type: 2}
-  - {fileID: -6936118467134263006, guid: ac3582204b9667b47b2ce5d72b5b97a1, type: 2}
-  - {fileID: -236806881652398569, guid: 4c922beb1d1ff7f4fa17404b03cd0a5f, type: 2}
+  - {fileID: 6280331963406133705, guid: ac3582204b9667b47b2ce5d72b5b97a1, type: 2}
+  - {fileID: -6648335342518172114, guid: 4c922beb1d1ff7f4fa17404b03cd0a5f, type: 2}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -157,7 +156,8 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
-    Android: com.TabletopMaster.MRTK2baselineV2
+    Android: com.TabletopMaster.MRTK2baselineV3
+    Standalone: com.TabletopMaster.MRTK2-baselineV3
   buildNumber:
     Standalone: 0
     iPhone: 0
@@ -176,7 +176,7 @@ PlayerSettings:
   CreateWallpaper: 0
   APKExpansionFiles: 0
   keepLoadedShadersAlive: 0
-  StripUnusedMeshComponents: 1
+  StripUnusedMeshComponents: 0
   VertexChannelCompressionMask: 4054
   iPhoneSdkVersion: 988
   iOSTargetOSVersionString: 11.0
