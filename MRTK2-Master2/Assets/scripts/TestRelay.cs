@@ -36,12 +36,16 @@ public class TestRelay : MonoBehaviour
     }
 
 
+    [SerializeField] 
+    public static Text serverCodeText;
+
     public static async void CreateRelay() {
         try
         {
             Allocation allocation = await RelayService.Instance.CreateAllocationAsync(3); // max number of clients
             string joinCode = await RelayService.Instance.GetJoinCodeAsync(allocation.AllocationId);
             Debug.Log("Joincode " + joinCode);
+            serverCodeText.text  = joinCode;
 
             NetworkManager.Singleton.GetComponent<UnityTransport>().SetHostRelayData(
                 allocation.RelayServer.IpV4,
