@@ -13,12 +13,15 @@ public class TestRelay : MonoBehaviour
     [SerializeField]
     private Text inputObject;
 
+   public Text serverCodeText;
+
     Button hostButton;
     InputField inputcode;
     Button joinButton;
     // Start is called before the first frame update
     public async void Start()
     {
+           serverCodeText = GameObject.Find("codedisplay").GetComponent<Text>();
         await UnityServices.InitializeAsync();
         AuthenticationService.Instance.SignedIn += () =>
         {
@@ -33,11 +36,16 @@ public class TestRelay : MonoBehaviour
         joinButton = GameObject.Find("Join Button").GetComponent<Button>();
         joinButton.onClick.AddListener(delegate { JoinRelay(); });
 
+     
+
     }
 
+    static void setCode(Text text, string code) {
+        text.text = code;
 
-    [SerializeField] 
-    public static Text serverCodeText;
+    }
+
+    
 
     public static async void CreateRelay() {
         try
@@ -45,7 +53,9 @@ public class TestRelay : MonoBehaviour
             Allocation allocation = await RelayService.Instance.CreateAllocationAsync(3); // max number of clients
             string joinCode = await RelayService.Instance.GetJoinCodeAsync(allocation.AllocationId);
             Debug.Log("Joincode " + joinCode);
-            serverCodeText.text  = joinCode;
+
+            Text serverCodeTest = GameObject.Find("displaycode").GetComponent<Text>();
+            setCode(serverCodeTest, joinCode);
 
             NetworkManager.Singleton.GetComponent<UnityTransport>().SetHostRelayData(
                 allocation.RelayServer.IpV4,
