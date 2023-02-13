@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Microsoft.MixedReality.Toolkit.UI;
 using UnityEngine;
 
 public class BoardCreationManager : MonoBehaviour
@@ -10,17 +11,19 @@ public class BoardCreationManager : MonoBehaviour
     private State currentState = State.NotStarted;
 
     [SerializeField]
-    private GameObject boardAnchorPointPrefab, startButtonPrefab, confirmationBoxPrefab;
+    private GameObject boardAnchorPointPrefab;
 
-    private GameObject[] boardAnchorPoints;
+    private GameObject[] boardAnchorPoints = new GameObject[2];
+
+    [SerializeField]
     private GameObject startButton, confirmationBox;
 
 
-    public void changeAndUpdateState(State current, Input input){
+    public void changeAndUpdateState(Input input){
         currentState = calculateState(currentState, input);
         HandeCurrentState();
-
     }
+    
     private State calculateState(State current, Input input) =>
         (current, input) switch{
             (State.NotStarted, Input.Next) => State.DesignateFirstCorner,
@@ -29,8 +32,6 @@ public class BoardCreationManager : MonoBehaviour
             (State.DesignateSecondCorner, Input.Next) => State.ConfirmMarkings,
             (State.DesignateSecondCorner, Input.Cancel) => State.NotStarted,
             (State.ConfirmMarkings, Input.Next) => State.Finished,
-
-
             _ => throw new System.NotSupportedException(
             $"{current} has no transition on {input}")
         };
@@ -60,13 +61,16 @@ public class BoardCreationManager : MonoBehaviour
 
     private void setupNotStartedState(){
         //TODO legg på riktig tekst på buttonen
+        startButton.SetActive(true);
         return;
     }
     private void setupDesignateFirstCorner(){
+        startButton.SetActive(false);
         //spawn et objekt (som konfigurerers i unity. Seet tooltip her)
         //TODO configurer objektet med tooltips + lokalisasjon
-        if(!boardAnchorPoints[0]){
+        if(boardAnchorPoints[0] is null){
             boardAnchorPoints[0] = Instantiate(boardAnchorPointPrefab);
+            boardAnchorPoints[0].GetComponentInChildren<PressableButtonHoloLens2>().ButtonPressed.AddListener(handleNextInput);
         }
 
         if(boardAnchorPoints[1]){
@@ -78,21 +82,21 @@ public class BoardCreationManager : MonoBehaviour
     private void setupDesignteSecondCorner(){
         //spawn et objekt (som konfigurerers i unity. Seet tooltip her)
         //TODO configurer objektet med tooltips + lokalisasjon
-        if(!boardAnchorPoints[1]){
+        if(boardAnchorPoints[1] is null){
             boardAnchorPoints[1] = Instantiate(boardAnchorPointPrefab);
+            boardAnchorPoints[1].GetComponentInChildren<PressableButtonHoloLens2>().ButtonPressed.AddListener(handleNextInput);
         }
 
 
     }
     private void SetupConfirmMarkings(){
-        Instantiate(boardAnchorPointPrefab); 
+        confirmationBox.SetActive(true); 
         //TODO configurere objektet med riktig tekst + lokalisasjon
         //spawn confirm boksen her (som konfgurerers i unity)
-        return;
     }
     private void SetupFinished(){
+        confirmationBox.SetActive(false); 
         //TODO instantiate boards with points positions
-
         foreach (var point in boardAnchorPoints){
             Destroy(point);
         }
@@ -105,7 +109,21 @@ public class BoardCreationManager : MonoBehaviour
         return;
     }
 
+    //need functions without input as a wrapper, so that they can be used in unity events
+    public void handleNextInput(){
+        Debug.Log("Going to next state. Current state: " + currentState+". Action: " +Input.Next);
+        changeAndUpdateState(Input.Next);
     }
+    public void handleBackInput(){
+        changeAndUpdateState(Input.Back);
+    }
+    public void handleCancelInput(){
+        changeAndUpdateState(Input.Cancel);
+    }
+    
+    }
+
+    
 
 
 
