@@ -8,15 +8,16 @@ public class BoardFactory : MonoBehaviour
     private Transform[] cornerPoints;
     
     [SerializeField]
+    private GameObject boardPrefab;
+
     private GameObject board;
 
     [SerializeField]
     private bool continousUpdate;
 
-    [SerializeField]
-    private bool debugLines;
-
     public bool instantiateBoard;
+
+    private GameObject pointerIndicator = null;
 
 
     private void Update() {
@@ -26,10 +27,8 @@ public class BoardFactory : MonoBehaviour
         }
 
         if(continousUpdate && board ){
-            updateBoardPosition();
-        }
-        if(debugLines){
-            DrawLines();
+            //updateBoardPosition();
+            twoPointAlgorithm(cornerPoints[0].transform.position, cornerPoints[1].transform.position);
         }
     }
 
@@ -38,29 +37,31 @@ public class BoardFactory : MonoBehaviour
             Debug.Log("could not instantiate board: not enough points ");
             return;
         }
+        board = Instantiate(boardPrefab);
 
-        board = GameObject.CreatePrimitive(PrimitiveType.Cube);
-        updateBoardPosition();
+        twoPointAlgorithm(cornerPoints[0].transform.position, cornerPoints[1].transform.position);
         return;
     }
 
-    private void updateBoardPosition(){
-        Vector3 width = cornerPoints[1].position - cornerPoints[0].position;
-        Vector3 length = cornerPoints[2].position - cornerPoints[0].position;
-        float height =0.1f;
+    private void twoPointAlgorithm(Vector3 pA, Vector3 pC){
+        //ignores changes in y plane
+        //Assumes a square board, as it is used in chess and lessens setup time
 
-        board.transform.localScale = new Vector3(Vector3.Magnitude(width), height , Vector3.Magnitude(length));
-        //using setPositionAndRotation, as changing posiition for some reason does not update the thing
-        board.transform.SetPositionAndRotation(cornerPoints[0].position + width/2 + length/2 , Quaternion.LookRotation((cornerPoints[0].position + width/2) - (cornerPoints[0].position + width/2 + length/2) ,  Vector3.Cross(length, width)));
+        Vector3 crossSection = new Vector3(pC.x-pA.x, 0, pC.z-pA.z);
+        Vector3 perpendicularCrossSection = new Vector3(crossSection.z, 0, -crossSection.x);
+        float  crossSectionMagnitude = Vector3.Magnitude(crossSection);
+        Vector3 center = pA + crossSection/2;
+        Vector3 pB = center + perpendicularCrossSection/2;
+
+        float width = Vector3.Distance(pA, pB);
+        
+        board.transform.localScale = new Vector3(width, width, width);
+        
+        Quaternion rotation = Quaternion.LookRotation((pA + (pB-pA)/2) - center, Vector3.up);
+        board.transform.SetPositionAndRotation(center , rotation);
+
 
 
     }
 
-    private void DrawLines(){
-        Debug.DrawLine(cornerPoints[0].position, cornerPoints[1].position, Color.blue);
-        Debug.DrawLine(cornerPoints[0].position, cornerPoints[2].position, Color.blue);
-        Vector3 width = cornerPoints[1].position - cornerPoints[0].position;
-        Vector3 length = cornerPoints[2].position - cornerPoints[0].position;
-        Debug.DrawRay(cornerPoints[0].position + width/2 + length/2, Vector3.Cross(length, width), Color.green);
-    }
 }
