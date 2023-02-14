@@ -18,6 +18,9 @@ public class BoardCreationManager : MonoBehaviour
     [SerializeField]
     private GameObject startButton, confirmationBox;
 
+    [SerializeField]
+    private BoardFactory boardFactory;
+
 
     public void changeAndUpdateState(Input input){
         currentState = calculateState(currentState, input);
@@ -70,6 +73,7 @@ public class BoardCreationManager : MonoBehaviour
         //TODO configurer objektet med tooltips + lokalisasjon
         if(boardAnchorPoints[0] is null){
             boardAnchorPoints[0] = Instantiate(boardAnchorPointPrefab);
+            boardAnchorPoints[0].transform.position = startButton.transform.position + new Vector3(0, -0.2f, 0);
             boardAnchorPoints[0].GetComponentInChildren<PressableButtonHoloLens2>().ButtonPressed.AddListener(handleNextInput);
         }
 
@@ -84,6 +88,7 @@ public class BoardCreationManager : MonoBehaviour
         //TODO configurer objektet med tooltips + lokalisasjon
         if(boardAnchorPoints[1] is null){
             boardAnchorPoints[1] = Instantiate(boardAnchorPointPrefab);
+            boardAnchorPoints[1].transform.position = boardAnchorPoints[0].transform.position + new Vector3(0.2f, 0, 0.2f);
             boardAnchorPoints[1].GetComponentInChildren<PressableButtonHoloLens2>().ButtonPressed.AddListener(handleNextInput);
         }
 
@@ -96,15 +101,15 @@ public class BoardCreationManager : MonoBehaviour
     }
     private void SetupFinished(){
         confirmationBox.SetActive(false); 
-        //TODO instantiate boards with points positions
+
+        boardFactory.InstantiateBoardBasedOnCorners(boardAnchorPoints[0].transform.position, boardAnchorPoints[1].transform.position);
+       
+
         foreach (var point in boardAnchorPoints){
             Destroy(point);
         }
         boardAnchorPoints = null;
         Destroy(confirmationBox);
-        //instansier det fysiske brettet. 
-        //fjern alle markerts 
-        
         //Kanskje sette staten tilbake på et senere tidspunkt?
         return;
     }

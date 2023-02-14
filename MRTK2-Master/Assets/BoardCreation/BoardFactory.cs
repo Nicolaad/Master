@@ -4,46 +4,18 @@ using UnityEngine;
 
 public class BoardFactory : MonoBehaviour
 {
-    [SerializeField]
-    private Transform[] cornerPoints;
     
     [SerializeField]
     private GameObject boardPrefab;
 
-    private GameObject board;
 
-    [SerializeField]
-    private bool continousUpdate;
-
-    public bool instantiateBoard;
-
-    private GameObject pointerIndicator = null;
-
-
-    private void Update() {
-        if(instantiateBoard){
-            instantiateBoard = false;
-            InstantiateBoard();
-        }
-
-        if(continousUpdate && board ){
-            //updateBoardPosition();
-            twoPointAlgorithm(cornerPoints[0].transform.position, cornerPoints[1].transform.position);
-        }
+    public  void InstantiateBoardBasedOnCorners(Vector3 pA, Vector3 pC){
+        GameObject newBoard = Instantiate(boardPrefab);
+        setTransformBasedOn2Corners(newBoard, pA, pC);
     }
 
-    public void InstantiateBoard(){
-        if(cornerPoints.Length < 3){
-            Debug.Log("could not instantiate board: not enough points ");
-            return;
-        }
-        board = Instantiate(boardPrefab);
 
-        twoPointAlgorithm(cornerPoints[0].transform.position, cornerPoints[1].transform.position);
-        return;
-    }
-
-    private void twoPointAlgorithm(Vector3 pA, Vector3 pC){
+    private void setTransformBasedOn2Corners(GameObject board ,Vector3 pA, Vector3 pC){
         //ignores changes in y plane
         //Assumes a square board, as it is used in chess and lessens setup time
 
