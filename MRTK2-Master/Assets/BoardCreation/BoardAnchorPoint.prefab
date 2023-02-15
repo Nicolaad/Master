@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 118922614263709990}
   - component: {fileID: 118922614263709977}
   - component: {fileID: 118922614263709976}
+  - component: {fileID: -3743317515081794243}
+  - component: {fileID: 5586268186733381941}
   m_Layer: 0
   m_Name: BoardAnchorPoint
   m_TagString: Untagged
@@ -29,9 +31,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 118922614263709983}
-  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0.18930769, y: -0.34499073, z: 0.52619123}
-  m_LocalScale: {x: 0.10000001, y: 0.1, z: 0.10000001}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
   m_Children:
   - {fileID: 8388697744664619631}
   m_Father: {fileID: 0}
@@ -127,7 +129,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hostTransform: {fileID: 118922614263709979}
   manipulationType: 3
-  twoHandedManipulationType: 7
+  twoHandedManipulationType: 1
   allowFarManipulation: 0
   useForcesForNearManipulation: 0
   oneHandRotationModeNear: 1
@@ -147,10 +149,10 @@ MonoBehaviour:
   onManipulationStarted:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8388697744144002190}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: -3743317515081794243}
+        m_TargetAssemblyTypeName: BoardAnchorController, Assembly-CSharp
+        m_MethodName: handlePointMovementStart
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -162,17 +164,17 @@ MonoBehaviour:
   onManipulationEnded:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8388697744144002190}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: -3743317515081794243}
+        m_TargetAssemblyTypeName: BoardAnchorController, Assembly-CSharp
+        m_MethodName: handlePointMovementEnd
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 1
+          m_BoolArgument: 0
         m_CallState: 2
   onHoverEntered:
     m_PersistentCalls:
@@ -194,6 +196,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShowTetherWhenManipulating: 0
   IsBoundsHandles: 0
+--- !u!114 &-3743317515081794243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 118922614263709983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ad03e3bfdfeba3409baa0ccc897c7c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lockButton: {fileID: 8388697744144002190}
+--- !u!114 &5586268186733381941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 118922614263709983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff5df7a2c3b5b4843bdc23997f95edc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  handType: 3
+  proximityType: 3
+  executionOrder: 0
 --- !u!1001 &7675772516189730791
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -210,12 +240,20 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2072285809646445307, guid: 14a5221be29a3a842b65628f79b14215, type: 3}
+      propertyPath: TouchBegin.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 8388697744144002192}
+    - target: {fileID: 2072285809646445307, guid: 14a5221be29a3a842b65628f79b14215, type: 3}
       propertyPath: ButtonPressed.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2072285809646445307, guid: 14a5221be29a3a842b65628f79b14215, type: 3}
       propertyPath: ButtonPressed.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2072285809646445307, guid: 14a5221be29a3a842b65628f79b14215, type: 3}
+      propertyPath: TouchBegin.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnHandPressTouched
       objectReference: {fileID: 0}
     - target: {fileID: 2072285809646445307, guid: 14a5221be29a3a842b65628f79b14215, type: 3}
       propertyPath: ButtonPressed.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
@@ -226,8 +264,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2072285809646445307, guid: 14a5221be29a3a842b65628f79b14215, type: 3}
+      propertyPath: TouchBegin.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Microsoft.MixedReality.Toolkit.PhysicalPressEventRouter, Microsoft.MixedReality.Toolkit.SDK
+      objectReference: {fileID: 0}
+    - target: {fileID: 2072285809646445307, guid: 14a5221be29a3a842b65628f79b14215, type: 3}
       propertyPath: ButtonPressed.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgument
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2072285809646445307, guid: 14a5221be29a3a842b65628f79b14215, type: 3}
+      propertyPath: TouchBegin.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 2072285809646445307, guid: 14a5221be29a3a842b65628f79b14215, type: 3}
       propertyPath: ButtonPressed.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -263,7 +309,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2229130393035677064, guid: 14a5221be29a3a842b65628f79b14215, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2229130393035677064, guid: 14a5221be29a3a842b65628f79b14215, type: 3}
       propertyPath: m_LocalRotation.x
@@ -271,7 +317,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2229130393035677064, guid: 14a5221be29a3a842b65628f79b14215, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 2229130393035677064, guid: 14a5221be29a3a842b65628f79b14215, type: 3}
       propertyPath: m_LocalRotation.z
@@ -310,12 +356,24 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8767521959507637706, guid: 14a5221be29a3a842b65628f79b14215, type: 3}
+      propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8767521959507637706, guid: 14a5221be29a3a842b65628f79b14215, type: 3}
+      propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8767521959507637706, guid: 14a5221be29a3a842b65628f79b14215, type: 3}
       propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 8388697744144002190}
     - target: {fileID: 8767521959507637706, guid: 14a5221be29a3a842b65628f79b14215, type: 3}
       propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: 
+      value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 8767521959507637706, guid: 14a5221be29a3a842b65628f79b14215, type: 3}
+      propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 14a5221be29a3a842b65628f79b14215, type: 3}
@@ -329,3 +387,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2229130393035677064, guid: 14a5221be29a3a842b65628f79b14215, type: 3}
   m_PrefabInstance: {fileID: 7675772516189730791}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8388697744144002192 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2229130393588800375, guid: 14a5221be29a3a842b65628f79b14215, type: 3}
+  m_PrefabInstance: {fileID: 7675772516189730791}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8388697744144002190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 881d1ff8f009f5148b9f192e6ba31223, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

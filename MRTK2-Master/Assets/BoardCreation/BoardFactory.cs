@@ -8,7 +8,6 @@ public class BoardFactory : MonoBehaviour
     [SerializeField]
     private GameObject boardPrefab;
 
-
     public  void InstantiateBoardBasedOnCorners(Vector3 pA, Vector3 pC){
         GameObject newBoard = Instantiate(boardPrefab);
         setTransformBasedOn2Corners(newBoard, pA, pC);

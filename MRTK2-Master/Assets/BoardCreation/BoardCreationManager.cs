@@ -63,18 +63,15 @@ public class BoardCreationManager : MonoBehaviour
     }
 
     private void setupNotStartedState(){
-        //TODO legg på riktig tekst på buttonen
         startButton.SetActive(true);
         return;
     }
     private void setupDesignateFirstCorner(){
         startButton.SetActive(false);
-        //spawn et objekt (som konfigurerers i unity. Seet tooltip her)
-        //TODO configurer objektet med tooltips + lokalisasjon
         if(boardAnchorPoints[0] is null){
             boardAnchorPoints[0] = Instantiate(boardAnchorPointPrefab);
             boardAnchorPoints[0].transform.position = startButton.transform.position + new Vector3(0, -0.2f, 0);
-            boardAnchorPoints[0].GetComponentInChildren<PressableButtonHoloLens2>().ButtonPressed.AddListener(handleNextInput);
+            boardAnchorPoints[0].GetComponent<BoardAnchorController>().addFunctionToClickEvent(handleNextInput);
         }
 
         if(boardAnchorPoints[1]){
@@ -84,24 +81,20 @@ public class BoardCreationManager : MonoBehaviour
 
     }
     private void setupDesignteSecondCorner(){
-        //spawn et objekt (som konfigurerers i unity. Seet tooltip her)
-        //TODO configurer objektet med tooltips + lokalisasjon
+
         if(boardAnchorPoints[1] is null){
             boardAnchorPoints[1] = Instantiate(boardAnchorPointPrefab);
             boardAnchorPoints[1].transform.position = boardAnchorPoints[0].transform.position + new Vector3(0.2f, 0, 0.2f);
-            boardAnchorPoints[1].GetComponentInChildren<PressableButtonHoloLens2>().ButtonPressed.AddListener(handleNextInput);
+            boardAnchorPoints[1].GetComponent<BoardAnchorController>().addFunctionToClickEvent(handleNextInput);
         }
 
 
     }
     private void SetupConfirmMarkings(){
         confirmationBox.SetActive(true); 
-        //TODO configurere objektet med riktig tekst + lokalisasjon
-        //spawn confirm boksen her (som konfgurerers i unity)
     }
     private void SetupFinished(){
         confirmationBox.SetActive(false); 
-
         boardFactory.InstantiateBoardBasedOnCorners(boardAnchorPoints[0].transform.position, boardAnchorPoints[1].transform.position);
        
 
@@ -110,7 +103,6 @@ public class BoardCreationManager : MonoBehaviour
         }
         boardAnchorPoints = null;
         Destroy(confirmationBox);
-        //Kanskje sette staten tilbake på et senere tidspunkt?
         return;
     }
 
