@@ -11,7 +11,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/MRTK2Scene.unity
     guid: 35fa2dbd95604e346a07c59ec049b513
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/relay_mixedreality.unity
     guid: 6220f5f6e4c62c84a85438589eacb6d0
   - enabled: 1

@@ -1,3 +1,4 @@
+using TMPro;
 using Unity.Netcode;
 using Unity.Netcode.Transports.UTP;
 using Unity.Services.Authentication;
@@ -34,7 +35,7 @@ public class TestRelay : MonoBehaviour
         hostButton = GameObject.Find("Start Host").GetComponent<Button>();
         hostButton.onClick.AddListener(CreateRelay);
         joinButton = GameObject.Find("Join Button").GetComponent<Button>();
-        joinButton.onClick.AddListener(delegate { JoinRelay(); });
+        joinButton.onClick.AddListener(JoinRelay);
 
      
 
@@ -77,8 +78,10 @@ public class TestRelay : MonoBehaviour
     public async void JoinRelay() {
         try
         {
-            string joinCode = inputObject.text;
-            Debug.Log("joining relay with " + joinCode);
+            //string joinCode = GameObject.Find("inputcode").GetComponent<TextMeshPro>().text;
+            TMP_InputField inputfield = GameObject.Find("joininputfield").GetComponent<TMP_InputField>();
+            string joinCode = inputfield.text;
+            Debug.Log("joining relay with code " + joinCode);
             JoinAllocation joinAllocation = await RelayService.Instance.JoinAllocationAsync(joinCode);
 
             NetworkManager.Singleton.GetComponent<UnityTransport>().SetClientRelayData(joinAllocation.RelayServer.IpV4,
