@@ -13,7 +13,7 @@ public class BoardCreationManager : MonoBehaviour
     [SerializeField]
     private GameObject boardAnchorPointPrefab;
 
-    private GameObject[] boardAnchorPoints = new GameObject[2];
+    private GameObject[] boardAnchorPoints =  new GameObject[2];
 
     [SerializeField]
     private GameObject startButton, confirmationBox;
@@ -33,7 +33,7 @@ public class BoardCreationManager : MonoBehaviour
             (State.DesignateFirstCorner, Input.Next) => State.DesignateSecondCorner,
             (State.DesignateFirstCorner, Input.Back) => State.DesignateFirstCorner,
             (State.DesignateSecondCorner, Input.Next) => State.ConfirmMarkings,
-            (State.DesignateSecondCorner, Input.Cancel) => State.NotStarted,
+            (State.ConfirmMarkings, Input.Cancel) => State.NotStarted,
             (State.ConfirmMarkings, Input.Next) => State.Finished,
             _ => throw new System.NotSupportedException(
             $"{current} has no transition on {input}")
@@ -63,15 +63,19 @@ public class BoardCreationManager : MonoBehaviour
     }
 
     private void setupNotStartedState(){
+        clearupGeneratedElements();
         startButton.SetActive(true);
         return;
     }
     private void setupDesignateFirstCorner(){
         startButton.SetActive(false);
+        
         if(boardAnchorPoints[0] is null){
             boardAnchorPoints[0] = Instantiate(boardAnchorPointPrefab);
             boardAnchorPoints[0].transform.position = startButton.transform.position + new Vector3(0, -0.2f, 0);
             boardAnchorPoints[0].GetComponent<BoardAnchorController>().addFunctionToClickEvent(handleNextInput);
+        }else{
+            boardAnchorPoints[0].GetComponent<BoardAnchorController>().unlockPosition();
         }
 
         if(boardAnchorPoints[1]){
@@ -81,11 +85,12 @@ public class BoardCreationManager : MonoBehaviour
 
     }
     private void setupDesignteSecondCorner(){
-
         if(boardAnchorPoints[1] is null){
             boardAnchorPoints[1] = Instantiate(boardAnchorPointPrefab);
             boardAnchorPoints[1].transform.position = boardAnchorPoints[0].transform.position + new Vector3(0.2f, 0, 0.2f);
             boardAnchorPoints[1].GetComponent<BoardAnchorController>().addFunctionToClickEvent(handleNextInput);
+        }else{
+            boardAnchorPoints[1].GetComponent<BoardAnchorController>().unlockPosition();
         }
 
 
@@ -93,17 +98,24 @@ public class BoardCreationManager : MonoBehaviour
     private void SetupConfirmMarkings(){
         confirmationBox.SetActive(true); 
     }
-    private void SetupFinished(){
-        confirmationBox.SetActive(false); 
-        boardFactory.InstantiateBoardBasedOnCorners(boardAnchorPoints[0].transform.position, boardAnchorPoints[1].transform.position);
-       
 
-        foreach (var point in boardAnchorPoints){
-            Destroy(point);
-        }
-        boardAnchorPoints = null;
-        Destroy(confirmationBox);
+    private void SetupFinished(){
+        boardFactory.InstantiateBoardBasedOnCorners(boardAnchorPoints[0].GetComponent<BoardAnchorController>().getAnchorPosition(), boardAnchorPoints[1].GetComponent<BoardAnchorController>().getAnchorPosition());
+        clearupGeneratedElements();
         return;
+    }
+
+    private void clearupGeneratedElements(){
+        if(boardAnchorPoints.Length > 0){
+            for(int i = 0; i<boardAnchorPoints.Length; i++){
+                Destroy(boardAnchorPoints[i]);
+                boardAnchorPoints[i] = null;
+
+            }
+        }
+        startButton.SetActive(false);
+        confirmationBox.SetActive(false);
+
     }
 
     //need functions without input as a wrapper, so that they can be used in unity events

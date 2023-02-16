@@ -209,6 +209,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lockButton: {fileID: 8388697744144002190}
+  objectManipulator: {fileID: 118922614263709977}
 --- !u!114 &5586268186733381941
 MonoBehaviour:
   m_ObjectHideFlags: 0
