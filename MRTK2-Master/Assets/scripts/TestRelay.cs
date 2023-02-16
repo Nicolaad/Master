@@ -19,6 +19,8 @@ public class TestRelay : MonoBehaviour
     Button hostButton;
     InputField inputcode;
     Button joinButton;
+
+    Button stopClientButton;
     // Start is called before the first frame update
     public async void Start()
     {
@@ -36,8 +38,10 @@ public class TestRelay : MonoBehaviour
         hostButton.onClick.AddListener(CreateRelay);
         joinButton = GameObject.Find("Join Button").GetComponent<Button>();
         joinButton.onClick.AddListener(JoinRelay);
+        stopClientButton = GameObject.Find("Stop client button").GetComponent<Button>();
+        stopClientButton.onClick.AddListener(StopClient);
 
-     
+
 
     }
 
@@ -46,14 +50,14 @@ public class TestRelay : MonoBehaviour
 
     }
 
-    
+     
 
     public static async void CreateRelay() {
         try
         {
             Allocation allocation = await RelayService.Instance.CreateAllocationAsync(3); // max number of clients
             string joinCode = await RelayService.Instance.GetJoinCodeAsync(allocation.AllocationId);
-            Debug.Log("Joincode " + joinCode);
+         
 
             //Text serverCodeTest = GameObject.Find("displaycode").GetComponent<Text>();
             //setCode(serverCodeTest, joinCode);
@@ -68,11 +72,27 @@ public class TestRelay : MonoBehaviour
 
             NetworkManager.Singleton.StartHost();
             Debug.Log("Host started");
+            Debug.Log("with Joincode " + joinCode);
+          
         }
         catch (RelayServiceException e) {
             Debug.Log(e);
         }
     }
+
+   
+
+    public void StopClient() {
+        try {
+            NetworkManager.Singleton.DisconnectClient(NetworkManager.Singleton.LocalClientId);
+        Debug.Log("client disconnected");
+        } catch (RelayServiceException e) {
+            Debug.Log(e);
+        }
+        
+    }
+
+   
 
 
     public async void JoinRelay() {
