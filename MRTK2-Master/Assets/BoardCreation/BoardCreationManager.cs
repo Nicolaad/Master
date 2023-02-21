@@ -87,7 +87,7 @@ public class BoardCreationManager : MonoBehaviour
     private void setupDesignteSecondCorner(){
         if(boardAnchorPoints[1] is null){
             boardAnchorPoints[1] = Instantiate(boardAnchorPointPrefab);
-            boardAnchorPoints[1].transform.position = boardAnchorPoints[0].transform.position + new Vector3(0.2f, 0, 0.2f);
+            boardAnchorPoints[1].transform.position = boardAnchorPoints[0].transform.position + new Vector3(0.2f, 0.2f, 0.2f);
             boardAnchorPoints[1].GetComponent<BoardAnchorController>().addFunctionToClickEvent(handleNextInput);
         }else{
             boardAnchorPoints[1].GetComponent<BoardAnchorController>().unlockPosition();
