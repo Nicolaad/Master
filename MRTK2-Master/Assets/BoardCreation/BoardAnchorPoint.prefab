@@ -138,11 +138,11 @@ MonoBehaviour:
   transformSmoothingLogicType:
     reference: Microsoft.MixedReality.Toolkit.Utilities.DefaultTransformSmoothingLogic,
       Microsoft.MixedReality.Toolkit.SDK
-  smoothingFar: 1
-  smoothingNear: 1
-  moveLerpTime: 0.001
-  rotateLerpTime: 0.001
-  scaleLerpTime: 0.001
+  smoothingFar: 0
+  smoothingNear: 0
+  moveLerpTime: 0
+  rotateLerpTime: 0
+  scaleLerpTime: 0
   enableConstraints: 1
   constraintsManager: {fileID: 118922614263709990}
   elasticsManager: {fileID: 0}
