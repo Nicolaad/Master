@@ -7,8 +7,9 @@ using UnityEngine.Events;
 public class BoardAnchorController : MonoBehaviour
 {
     [SerializeField] 
-    private GameObject lockButton;
+    private GameObject lockButton, anchorTip;
     private Camera playerCamera;
+
     
     //using namespace to distinguish it from OVR's ObjectManipulator class
     private Microsoft.MixedReality.Toolkit.UI.ObjectManipulator objectManipulator;
@@ -51,7 +52,6 @@ public class BoardAnchorController : MonoBehaviour
     }
 
     public Vector3 getAnchorPosition(){
-        //modify this function to change how the anchorPoint is calculated
-        return this.transform.position;
+        return anchorTip.transform.position;
     }
 }
