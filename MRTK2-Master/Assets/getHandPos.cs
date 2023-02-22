@@ -33,7 +33,7 @@ public class getHandPos : MonoBehaviour
                 sphereRight.rotation = jointTransformRight.rotation;
                 sphereLeft.position = jointTransformLeft.position - new Vector3(0,offsetY,0);
                 sphereLeft.rotation = jointTransformLeft.rotation;
-
+                
             }
             catch
             {
