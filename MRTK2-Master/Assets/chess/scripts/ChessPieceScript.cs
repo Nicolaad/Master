@@ -11,6 +11,12 @@ public class ChessPieceScript : MonoBehaviour
         this.GetComponent<Microsoft.MixedReality.Toolkit.UI.ObjectManipulator>().OnManipulationEnded.AddListener((data) =>{setYPosToBoardPos();});
     }
 
+    void Update(){
+        if(this.transform.localPosition.y < 0){
+            this.transform.localPosition = new Vector3(transform.localPosition.x, 0, transform.localPosition.z);
+        }
+    }
+
     public void setYPosToBoardPos(){
         //set local y to 0, which should be the starting y value. 
         this.transform.localPosition = new Vector3(transform.localPosition.x, 0, transform.localPosition.z);
