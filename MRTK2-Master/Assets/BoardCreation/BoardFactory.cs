@@ -1,16 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity.Netcode;
 
-public class BoardFactory : MonoBehaviour
+public class BoardFactory : NetworkBehaviour
 {
     
     [SerializeField]
     private GameObject boardPrefab;
 
+    [SerializeField]
+    private GameObject wrapper;
+
     public  void InstantiateBoardBasedOnCorners(Vector3 pA, Vector3 pC){
-        GameObject newBoard = Instantiate(boardPrefab);
-        setTransformBasedOn2Corners(newBoard, pA, pC);
+        wrapper.SetActive(true);
+
+        setTransformBasedOn2Corners(wrapper, pA, pC);
+
+        if(IsServer){
+            GameObject newBoard = Instantiate(boardPrefab);
+            newBoard.GetComponent<NetworkObject>().Spawn();
+            
+            //newBoard.transform.SetParent(wrapper.transform);
+            //newBoard.transform.localScale = Vector3.one;
+            //newBoard.transform.localPosition = Vector3.zero;
+            //newBoard.transform.localRotation = Quaternion.identity;
+            
+        }
+
+
     }
 
 
