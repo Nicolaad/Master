@@ -16,6 +16,7 @@ public class getHandPos : MonoBehaviour
     {
         sphereRight = this.gameObject.transform.GetChild(0);
         sphereLeft = this.gameObject.transform.GetChild(1);
+        gameObject.DontDestroyOnLoad();
     }
 
     // Update is called once per frame

@@ -10,7 +10,7 @@ public class loadPlayer : NetworkBehaviour
     // Start is called before the first frame update
     void Start()
     {
-         Instantiate(player);
+        NetworkObject.Spawn(player);
     }
 
     // Update is called once per frame
