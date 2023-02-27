@@ -5,7 +5,8 @@ using UnityEngine;
 public class followHead : MonoBehaviour
 {
 
-  
+    public float yOffset = 0f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,7 +17,7 @@ public class followHead : MonoBehaviour
     void Update()
     {
           Transform cam = Camera.main.transform;
-        transform.position = cam.position;
+        transform.position = cam.position + new Vector3(0,yOffset,0);
         transform.rotation = cam.rotation;
     }
 }
