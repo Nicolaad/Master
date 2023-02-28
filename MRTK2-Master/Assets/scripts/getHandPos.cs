@@ -9,20 +9,23 @@ public class getHandPos : MonoBehaviour
 {
 
     Transform handRight;
+     Transform handLeft;
     public float offsetY = 0.07f;
-    Transform handLeft;
+   
+    IMixedRealityHandJointService handJointService;
     // Start is called before the first frame update
     void Start()
     {
         handRight = this.gameObject.transform.GetChild(0);
         handLeft = this.gameObject.transform.GetChild(1);
         gameObject.DontDestroyOnLoad();
+        handJointService = CoreServices.GetInputSystemDataProvider<IMixedRealityHandJointService>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        var handJointService = CoreServices.GetInputSystemDataProvider<IMixedRealityHandJointService>();
+       
         if (handJointService != null)
         {
             try
