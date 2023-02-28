@@ -8,14 +8,14 @@ using UnityEngine;
 public class getHandPos : MonoBehaviour
 {
 
-    Transform sphereRight;
+    Transform handRight;
     public float offsetY = 0.07f;
-    Transform sphereLeft;
+    Transform handLeft;
     // Start is called before the first frame update
     void Start()
     {
-        sphereRight = this.gameObject.transform.GetChild(0);
-        sphereLeft = this.gameObject.transform.GetChild(1);
+        handRight = this.gameObject.transform.GetChild(0);
+        handLeft = this.gameObject.transform.GetChild(1);
         gameObject.DontDestroyOnLoad();
     }
 
@@ -30,16 +30,18 @@ public class getHandPos : MonoBehaviour
                 Transform jointTransformRight = handJointService.RequestJointTransform(TrackedHandJoint.IndexTip, Handedness.Right);
                 Transform jointTransformLeft = handJointService.RequestJointTransform(TrackedHandJoint.IndexTip, Handedness.Left);
                
-                sphereRight.position = jointTransformRight.position - new Vector3(0,offsetY,0);
-                sphereRight.rotation = jointTransformRight.rotation;
-                sphereLeft.position = jointTransformLeft.position - new Vector3(0,offsetY,0);
-                sphereLeft.rotation = jointTransformLeft.rotation;
+                handRight.position = jointTransformRight.position - new Vector3(0,offsetY,0);
+                handRight.rotation = jointTransformRight.rotation;
+                handLeft.position = jointTransformLeft.position - new Vector3(0,offsetY,0);
+                handLeft.rotation = jointTransformLeft.rotation;
                 
             }
             catch
             {
-                
+
+                Debug.Log("cannot find hands");
             }
         }
+   
     }
 }
