@@ -38,8 +38,8 @@ public class TestRelay : MonoBehaviour
         hostButton.onClick.AddListener(CreateRelay);
         joinButton = GameObject.Find("Join Button").GetComponent<Button>();
         joinButton.onClick.AddListener(JoinRelay);
-        stopClientButton = GameObject.Find("Stop client button").GetComponent<Button>();
-        stopClientButton.onClick.AddListener(StopClient);
+        // stopClientButton = GameObject.Find("Stop client button").GetComponent<Button>();
+        //stopClientButton.onClick.AddListener(StopClient);
 
 
 
@@ -123,6 +123,7 @@ public class TestRelay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
     }
 }
     
