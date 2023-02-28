@@ -228,7 +228,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d7777aa7e1467242ab9e9a5eb487873, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offsetY: 0.4
+  offsetY: 0.08
 --- !u!1001 &8072332078577547972
 PrefabInstance:
   m_ObjectHideFlags: 0
