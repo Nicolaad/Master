@@ -13,24 +13,24 @@ public class BoardFactory : NetworkBehaviour
     private GameObject wrapper;
 
     public  void InstantiateBoardBasedOnCorners(Vector3 pA, Vector3 pC){
-        wrapper.SetActive(true);
-
         setTransformBasedOn2Corners(wrapper, pA, pC);
 
         if(IsServer){
             GameObject newBoard = Instantiate(boardPrefab);
             newBoard.GetComponent<NetworkObject>().Spawn();
-            
-        }else{
-            //handles the case for when the board is spawned by the server before the client has specified an anchor
-            GameObject serverSpawnedBoard = GameObject.FindGameObjectWithTag("Board");
-            if(serverSpawnedBoard != null){
-                serverSpawnedBoard.GetComponent<MoveBoardToWrapper>().SetBoardPositionToWrapper();
-
-            }
+            //Storing networkObject reference as a variable gives a spawn error. Therefore double fetching the component
+            newBoard.GetComponent<NetworkObject>().TrySetParent(wrapper);
         }
 
-
+        //resets all the children within the wrapper, to make sure that they conform correctly after being parented
+        for(int i = 0; i < wrapper.transform.childCount; i++){
+            var child = wrapper.transform.GetChild(i);
+            if(child != null){
+                child.localPosition = Vector3.zero;
+                child.localScale = Vector3.one;
+                child.localRotation = Quaternion.identity;
+            }
+        }
     }
 
 
