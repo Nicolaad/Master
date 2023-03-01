@@ -219,6 +219,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ChessSetNetworked
       objectReference: {fileID: 0}
+    - target: {fileID: 4574855781589488919, guid: ed4246af7d4ef35429322ff1a4aa1caf, type: 3}
+      propertyPath: m_TagString
+      value: Board
+      objectReference: {fileID: 0}
     - target: {fileID: 4989776079468492199, guid: ed4246af7d4ef35429322ff1a4aa1caf, type: 3}
       propertyPath: hostTransform
       value: 

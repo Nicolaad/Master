@@ -21,11 +21,13 @@ public class BoardFactory : NetworkBehaviour
             GameObject newBoard = Instantiate(boardPrefab);
             newBoard.GetComponent<NetworkObject>().Spawn();
             
-            //newBoard.transform.SetParent(wrapper.transform);
-            //newBoard.transform.localScale = Vector3.one;
-            //newBoard.transform.localPosition = Vector3.zero;
-            //newBoard.transform.localRotation = Quaternion.identity;
-            
+        }else{
+            //handles the case for when the board is spawned by the server before the client has specified an anchor
+            GameObject serverSpawnedBoard = GameObject.FindGameObjectWithTag("Board");
+            if(serverSpawnedBoard != null){
+                serverSpawnedBoard.GetComponent<MoveBoardToWrapper>().SetBoardPositionToWrapper();
+
+            }
         }
 
 
