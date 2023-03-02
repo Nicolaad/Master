@@ -10,21 +10,15 @@ using UnityEngine.UI;
 
 public class TestRelay : MonoBehaviour
 {
+    
+    [SerializeField]
+    private Button hostButton, joinButton;
 
     [SerializeField]
-    private Text inputObject;
-
-   public Text serverCodeText;
-
-    Button hostButton;
-    InputField inputcode;
-    Button joinButton;
-
-    Button stopClientButton;
-    // Start is called before the first frame update
+    private TMP_InputField joinInputField, hostCodeDisplay;
+    
     public async void Start()
     {
-           serverCodeText = GameObject.Find("codedisplay").GetComponent<Text>();
         await UnityServices.InitializeAsync();
         AuthenticationService.Instance.SignedIn += () =>
         {
@@ -32,35 +26,16 @@ public class TestRelay : MonoBehaviour
         };
         await AuthenticationService.Instance.SignInAnonymouslyAsync();
 
-
-
-        hostButton = GameObject.Find("Start Host").GetComponent<Button>();
         hostButton.onClick.AddListener(CreateRelay);
-        joinButton = GameObject.Find("Join Button").GetComponent<Button>();
         joinButton.onClick.AddListener(JoinRelay);
-        // stopClientButton = GameObject.Find("Stop client button").GetComponent<Button>();
-        //stopClientButton.onClick.AddListener(StopClient);
-
-
 
     }
 
-    static void setCode(Text text, string code) {
-        text.text = code;
-
-    }
-
-     
-
-    public static async void CreateRelay() {
+    public async void CreateRelay() {
         try
         {
             Allocation allocation = await RelayService.Instance.CreateAllocationAsync(3); // max number of clients
             string joinCode = await RelayService.Instance.GetJoinCodeAsync(allocation.AllocationId);
-         
-
-            //Text serverCodeTest = GameObject.Find("displaycode").GetComponent<Text>();
-            //setCode(serverCodeTest, joinCode);
 
             NetworkManager.Singleton.GetComponent<UnityTransport>().SetHostRelayData(
                 allocation.RelayServer.IpV4,
@@ -69,6 +44,8 @@ public class TestRelay : MonoBehaviour
             allocation.Key,
             allocation.ConnectionData
             );
+            
+            hostCodeDisplay.text = joinCode;
 
             NetworkManager.Singleton.StartHost();
             Debug.Log("Host started");
@@ -80,27 +57,10 @@ public class TestRelay : MonoBehaviour
         }
     }
 
-   
-
-    public void StopClient() {
-        try {
-            NetworkManager.Singleton.DisconnectClient(NetworkManager.Singleton.LocalClientId);
-        Debug.Log("client disconnected");
-        } catch (RelayServiceException e) {
-            Debug.Log(e);
-        }
-        
-    }
-
-   
-
-
     public async void JoinRelay() {
         try
         {
-            //string joinCode = GameObject.Find("inputcode").GetComponent<TextMeshPro>().text;
-            TMP_InputField inputfield = GameObject.Find("joininputfield").GetComponent<TMP_InputField>();
-            string joinCode = inputfield.text;
+            string joinCode = joinInputField.text;
             Debug.Log("joining relay with code " + joinCode);
             JoinAllocation joinAllocation = await RelayService.Instance.JoinAllocationAsync(joinCode);
 
@@ -118,12 +78,6 @@ public class TestRelay : MonoBehaviour
             Debug.Log(e);
         }
 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
     
