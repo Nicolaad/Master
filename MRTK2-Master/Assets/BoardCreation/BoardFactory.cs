@@ -5,7 +5,6 @@ using Unity.Netcode;
 
 public class BoardFactory : NetworkBehaviour
 {
-    
     [SerializeField]
     private GameObject boardPrefab;
 
@@ -17,19 +16,12 @@ public class BoardFactory : NetworkBehaviour
 
         if(IsServer){
             GameObject newBoard = Instantiate(boardPrefab);
+            //Has to do GetComponent twice, as storing  it gives a 'double spawned' error
             newBoard.GetComponent<NetworkObject>().Spawn();
-            //Storing networkObject reference as a variable gives a spawn error. Therefore double fetching the component
             newBoard.GetComponent<NetworkObject>().TrySetParent(wrapper);
-        }
-
-        //resets all the children within the wrapper, to make sure that they conform correctly after being parented
-        for(int i = 0; i < wrapper.transform.childCount; i++){
-            var child = wrapper.transform.GetChild(i);
-            if(child != null){
-                child.localPosition = Vector3.zero;
-                child.localScale = Vector3.one;
-                child.localRotation = Quaternion.identity;
-            }
+            RescaleWrapperContentClientRpc();
+        }else{
+            RescaleWrapperContent();
         }
     }
 
@@ -50,9 +42,23 @@ public class BoardFactory : NetworkBehaviour
         
         Quaternion rotation = Quaternion.LookRotation((pA + (pB-pA)/2) - center, Vector3.up);
         board.transform.SetPositionAndRotation(center , rotation);
-
-
-
     }
 
+
+    [ClientRpc]
+    private void RescaleWrapperContentClientRpc(){
+        RescaleWrapperContent();
+    }
+
+    private void RescaleWrapperContent(){
+        //resets all the children within the wrapper, used to make sure that it properly comforms 
+        for(int i = 0; i < wrapper.transform.childCount; i++){
+            var child = wrapper.transform.GetChild(i);
+            if(child != null){
+                child.localPosition = Vector3.zero;
+                child.localScale = Vector3.one;
+                child.localRotation = Quaternion.identity;
+            }
+        }
+    }
 }
