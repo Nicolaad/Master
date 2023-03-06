@@ -1,16 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity.Netcode;
 
-public class BoardFactory : MonoBehaviour
+public class BoardFactory : NetworkBehaviour
 {
-    
     [SerializeField]
     private GameObject boardPrefab;
 
+    [SerializeField]
+    private GameObject wrapper;
+
     public  void InstantiateBoardBasedOnCorners(Vector3 pA, Vector3 pC){
-        GameObject newBoard = Instantiate(boardPrefab);
-        setTransformBasedOn2Corners(newBoard, pA, pC);
+        setTransformBasedOn2Corners(wrapper, pA, pC);
+
+        if(IsServer){
+            GameObject newBoard = Instantiate(boardPrefab);
+            //Has to do GetComponent twice, as storing  it gives a 'double spawned' error
+            newBoard.GetComponent<NetworkObject>().Spawn();
+            newBoard.GetComponent<NetworkObject>().TrySetParent(wrapper);
+            RescaleWrapperContentClientRpc();
+        }else{
+            RescaleWrapperContent();
+        }
     }
 
 
@@ -30,9 +42,23 @@ public class BoardFactory : MonoBehaviour
         
         Quaternion rotation = Quaternion.LookRotation((pA + (pB-pA)/2) - center, Vector3.up);
         board.transform.SetPositionAndRotation(center , rotation);
-
-
-
     }
 
+
+    [ClientRpc]
+    private void RescaleWrapperContentClientRpc(){
+        RescaleWrapperContent();
+    }
+
+    private void RescaleWrapperContent(){
+        //resets all the children within the wrapper, used to make sure that it properly comforms 
+        for(int i = 0; i < wrapper.transform.childCount; i++){
+            var child = wrapper.transform.GetChild(i);
+            if(child != null){
+                child.localPosition = Vector3.zero;
+                child.localScale = Vector3.one;
+                child.localRotation = Quaternion.identity;
+            }
+        }
+    }
 }

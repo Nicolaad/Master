@@ -7,7 +7,11 @@ using UnityEngine;
 public class ChessPieceScript : MonoBehaviour
 {
 
+    [SerializeField]
+    private GameObject networkObjectParent;
+
     private void Start() {
+        this.GetComponent<Microsoft.MixedReality.Toolkit.UI.ObjectManipulator>().OnManipulationStarted.AddListener((data) =>{RequestOwnership();});
         this.GetComponent<Microsoft.MixedReality.Toolkit.UI.ObjectManipulator>().OnManipulationEnded.AddListener((data) =>{setYPosToBoardPos();});
     }
 
@@ -23,6 +27,10 @@ public class ChessPieceScript : MonoBehaviour
 
         //decided to adjust the position when the piece is let go, so that hte player can twirl it. If this feels weird, then a constraint should be added to the piee so that it is always upright, even in movement.
         this.transform.localRotation = Quaternion.identity;
+    }
+
+    public void RequestOwnership(){
+        OwnershipManager.Instance.RequestOwnershipOfObject(networkObjectParent);
     }
 
 }
