@@ -12,10 +12,8 @@ GameObject:
   - component: {fileID: 2578181115931788704}
   - component: {fileID: 7558383067775079583}
   - component: {fileID: 4037227908272197313}
-  - component: {fileID: 3231936073809868193}
-  - component: {fileID: 6392280950987586679}
   m_Layer: 0
-  m_Name: Capsule
+  m_Name: Capsulebody
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,12 +26,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1169515291823365670}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -0.33, z: 0}
   m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_Children: []
-  m_Father: {fileID: 8337615866169733462}
-  m_RootOrder: 3
+  m_Father: {fileID: 8614284637866794287}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2578181115931788704
 MeshFilter:
@@ -98,45 +96,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3231936073809868193
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1169515291823365670}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f590e5bde518994f9832b3014550d82, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  yOffset: -0.4
---- !u!114 &6392280950987586679
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1169515291823365670}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df2868252ab5c4d1da357e8f11f1b524, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SyncPositionX: 1
-  SyncPositionY: 1
-  SyncPositionZ: 1
-  SyncRotAngleX: 1
-  SyncRotAngleY: 1
-  SyncRotAngleZ: 1
-  SyncScaleX: 0
-  SyncScaleY: 0
-  SyncScaleZ: 0
-  PositionThreshold: 0.001
-  RotAngleThreshold: 0.01
-  ScaleThreshold: 0.01
-  InLocalSpace: 0
-  Interpolate: 1
 --- !u!1 &8337615866169733456
 GameObject:
   m_ObjectHideFlags: 0
@@ -171,7 +130,6 @@ Transform:
   - {fileID: 8337615867549940004}
   - {fileID: 8337615866645763744}
   - {fileID: 8614284637866794287}
-  - {fileID: 727859678320877617}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -229,6 +187,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d7777aa7e1467242ab9e9a5eb487873, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  handRight: {fileID: 8337615867549940004}
+  handLeft: {fileID: 8337615866645763744}
   offsetY: 0.06
 --- !u!114 &8293265775619549523
 MonoBehaviour:
