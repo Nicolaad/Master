@@ -3,13 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using Unity.Netcode;
 
+
 public class BoardFactory : NetworkBehaviour
 {
     [SerializeField]
-    private GameObject boardPrefab;
-
-    [SerializeField]
-    private GameObject wrapper;
+    private GameObject boardPrefab, wrapper, player;
 
     public  void InstantiateBoardBasedOnCorners(Vector3 pA, Vector3 pC){
         setTransformBasedOn2Corners(wrapper, pA, pC);
@@ -23,6 +21,8 @@ public class BoardFactory : NetworkBehaviour
         }else{
             RescaleWrapperContent();
         }
+
+        transformScaleWrapperAndPlayerToWorldCenter();
     }
 
 
@@ -60,5 +60,15 @@ public class BoardFactory : NetworkBehaviour
                 child.localRotation = Quaternion.identity;
             }
         }
+    }
+
+    private void transformScaleWrapperAndPlayerToWorldCenter(){
+        //moves the board to position 0,0,0 , with rotation of 0 so that it can be synchronized with the other players.
+        //also moves the player the boared using parenting
+        var previousParent =  player.transform.parent;
+        player.transform.SetParent(wrapper.transform);
+        wrapper.transform.position = Vector3.zero;
+        wrapper.transform.rotation = Quaternion.identity;
+        player.transform.SetParent(previousParent);   
     }
 }
