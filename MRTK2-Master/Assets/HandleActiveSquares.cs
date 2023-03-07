@@ -27,6 +27,9 @@ public class HandleActiveSquares : MonoBehaviour
              movePiece(piece, targetSquare);
         }
         else {
+                piece.transform.parent = targetSquare.transform;
+                startSquare.GetComponent<Renderer>().enabled = false;
+                targetSquare.GetComponent<Renderer>().enabled = false;
                 startSquare = null;
                 targetSquare = null;
             }
@@ -38,9 +41,10 @@ public class HandleActiveSquares : MonoBehaviour
    public void movePiece(GameObject currentObject, GameObject targetSquare) {
     float step = speed * Time.deltaTime;
     Vector3 targetPos = targetSquare.transform.position;
-    Debug.Log(currentObject.name + " is closest");
+    // Debug.Log(currentObject.name + " is closest");
     currentObject.transform.position = Vector3.MoveTowards(currentObject.transform.position, targetPos, step);
-   
+        
+
     }
 
 
