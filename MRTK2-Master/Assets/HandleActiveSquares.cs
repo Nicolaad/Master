@@ -26,6 +26,10 @@ public class HandleActiveSquares : MonoBehaviour
         if( piece.transform.position != targetSquare.transform.position) {
              movePiece(piece, targetSquare);
         }
+        else {
+                startSquare = null;
+                targetSquare = null;
+            }
        
         }
     }
