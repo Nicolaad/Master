@@ -58,11 +58,7 @@ public class HandleActiveSquares : MonoBehaviour
     }
 
     public static bool SquareContainsPiece(GameObject square) {
-        GameObject closest = FindClosestPieceOnStartSquare(square);
-        if (square.transform.position.x == closest.transform.position.x && square.transform.position.z == closest.transform.position.z) {
-            return true;
-        }
-        return false;
+        return square.transform.childCount > 0;
     }
 
 
