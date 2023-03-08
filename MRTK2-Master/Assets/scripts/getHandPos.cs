@@ -7,17 +7,16 @@ using UnityEngine;
 
 public class getHandPos : MonoBehaviour
 {
+    [SerializeField]
+    private Transform handRight, handLeft;
 
-    Transform handRight;
-     Transform handLeft;
-    public float offsetY = 0.07f;
+    [SerializeField]
+    private float offsetY = 0.07f;
    
     IMixedRealityHandJointService handJointService;
     // Start is called before the first frame update
     void Start()
     {
-        handRight = this.gameObject.transform.GetChild(0);
-        handLeft = this.gameObject.transform.GetChild(1);
         gameObject.DontDestroyOnLoad();
         handJointService = CoreServices.GetInputSystemDataProvider<IMixedRealityHandJointService>();
     }
@@ -41,7 +40,6 @@ public class getHandPos : MonoBehaviour
             }
             catch
             {
-
                 Debug.Log("cannot find hands");
             }
         }

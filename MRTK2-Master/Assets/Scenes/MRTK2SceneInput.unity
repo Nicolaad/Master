@@ -1559,6 +1559,7 @@ MonoBehaviour:
   boardPrefab: {fileID: 7761987999967013270, guid: 11fade5832643824494b75788871df0f, type: 3}
   boardNonPhysical: {fileID: 1269230727697771846, guid: 2c93b24a0ec71d64384778eb3cbb4904, type: 3}
   wrapper: {fileID: 488273901}
+  player: {fileID: 1969758809}
 --- !u!4 &1173708354
 Transform:
   m_ObjectHideFlags: 0
@@ -3019,6 +3020,10 @@ PrefabInstance:
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7278065017366078565, guid: 8686b4f3e107a8b48b1565528846c26e, type: 3}
   m_PrefabInstance: {fileID: 1860856208}
+--- !u!1 &1969758809 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8075471635996604462, guid: 61ef2161f19f47a488355baf4c742056, type: 3}
+  m_PrefabInstance: {fileID: 8075471634977872603}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2825653951006206005
 PrefabInstance:
@@ -3091,6 +3096,10 @@ PrefabInstance:
     - target: {fileID: 6588963797587179220, guid: 61ef2161f19f47a488355baf4c742056, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 467569668
+      objectReference: {fileID: 0}
+    - target: {fileID: 8075471635270486724, guid: 61ef2161f19f47a488355baf4c742056, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8075471635996604461, guid: 61ef2161f19f47a488355baf4c742056, type: 3}
       propertyPath: m_RootOrder
