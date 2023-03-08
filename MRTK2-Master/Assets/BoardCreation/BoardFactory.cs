@@ -7,6 +7,15 @@ public class BoardFactory : NetworkBehaviour
 {
     [SerializeField]
     private GameObject boardPrefab;
+    [SerializeField] private GameObject boardNonPhysical;
+    private bool physicalBoard = true;
+
+    public void changeBoard() {
+        
+        physicalBoard = !physicalBoard;
+        Debug.Log("Physical board: " + physicalBoard);
+    }
+
 
     [SerializeField]
     private GameObject wrapper;
@@ -15,11 +24,11 @@ public class BoardFactory : NetworkBehaviour
         setTransformBasedOn2Corners(wrapper, pA, pC);
 
         if(IsServer){
-            GameObject newBoard = Instantiate(boardPrefab);
-            //Has to do GetComponent twice, as storing  it gives a 'double spawned' error
-            newBoard.GetComponent<NetworkObject>().Spawn();
+            GameObject newBoard = (physicalBoard ? Instantiate(boardPrefab) : Instantiate(boardNonPhysical));
+             newBoard.GetComponent<NetworkObject>().Spawn();
             newBoard.GetComponent<NetworkObject>().TrySetParent(wrapper);
             RescaleWrapperContentClientRpc();
+         
         }else{
             RescaleWrapperContent();
         }
