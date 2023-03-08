@@ -43,10 +43,27 @@ public class HandleActiveSquares : MonoBehaviour
     Vector3 targetPos = targetSquare.transform.position;
     // Debug.Log(currentObject.name + " is closest");
     currentObject.transform.position = Vector3.MoveTowards(currentObject.transform.position, targetPos, step);
-        
+        checkIfPieceCaptured(currentObject);
 
     }
 
+
+    public void checkIfPieceCaptured(GameObject currentObject) {
+        GameObject[] pieces = GameObject.FindGameObjectsWithTag("piece");
+        foreach(GameObject piece in pieces) {
+            if(piece.transform.position == currentObject.transform.position && piece != currentObject) {
+                piece.SetActive(false);
+            }
+        }
+    }
+
+    public static bool SquareContainsPiece(GameObject square) {
+        GameObject closest = FindClosestPieceOnStartSquare(square);
+        if (square.transform.position.x == closest.transform.position.x && square.transform.position.z == closest.transform.position.z) {
+            return true;
+        }
+        return false;
+    }
 
 
 
