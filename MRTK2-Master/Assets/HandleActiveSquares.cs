@@ -9,14 +9,7 @@ public class HandleActiveSquares : MonoBehaviour
     public static GameObject targetSquare;
     bool isMoveActive = false;
     public float speed = .2f;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
      
-    // Update is called once per frame
     void Update()
     {
 
