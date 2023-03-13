@@ -1556,8 +1556,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6dcedfe0a0037046811fe4131dc7152, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boardPrefab: {fileID: 7761987999967013270, guid: 11fade5832643824494b75788871df0f, type: 3}
+  boardButtonText: {fileID: 1860856210}
   boardNonPhysical: {fileID: 1269230727697771846, guid: 2c93b24a0ec71d64384778eb3cbb4904, type: 3}
+  boardPrefab: {fileID: 7761987999967013270, guid: 11fade5832643824494b75788871df0f, type: 3}
   wrapper: {fileID: 488273901}
   player: {fileID: 1969758809}
 --- !u!4 &1173708354
@@ -3002,17 +3003,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: Change board
       objectReference: {fileID: 0}
+    - target: {fileID: 7278065019124544340, guid: 8686b4f3e107a8b48b1565528846c26e, type: 3}
+      propertyPath: m_Name
+      value: boardText
+      objectReference: {fileID: 0}
     - target: {fileID: 7278065019124544342, guid: 8686b4f3e107a8b48b1565528846c26e, type: 3}
       propertyPath: m_text
-      value: Change board
+      value: Physical board (click to change)
       objectReference: {fileID: 0}
     - target: {fileID: 7278065019124544342, guid: 8686b4f3e107a8b48b1565528846c26e, type: 3}
       propertyPath: m_fontSize
-      value: 14
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7278065019124544342, guid: 8686b4f3e107a8b48b1565528846c26e, type: 3}
+      propertyPath: m_fontStyle
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7278065019124544342, guid: 8686b4f3e107a8b48b1565528846c26e, type: 3}
       propertyPath: m_fontSizeBase
-      value: 14
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8686b4f3e107a8b48b1565528846c26e, type: 3}
@@ -3020,6 +3029,12 @@ PrefabInstance:
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7278065017366078565, guid: 8686b4f3e107a8b48b1565528846c26e, type: 3}
   m_PrefabInstance: {fileID: 1860856208}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1860856210 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7278065019124544340, guid: 8686b4f3e107a8b48b1565528846c26e, type: 3}
+  m_PrefabInstance: {fileID: 1860856208}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1969758809 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8075471635996604462, guid: 61ef2161f19f47a488355baf4c742056, type: 3}

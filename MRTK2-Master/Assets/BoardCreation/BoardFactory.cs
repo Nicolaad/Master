@@ -2,19 +2,37 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Unity.Netcode;
-
+using TMPro;
 
 public class BoardFactory : NetworkBehaviour
 {
 
+
+    [SerializeField] private GameObject boardButtonText;
     [SerializeField] private GameObject boardNonPhysical;
     private bool physicalBoard = true;
+    private TMP_Text menuBoardText;
+
+    private void Start()
+    {
+        menuBoardText = boardButtonText.GetComponent<TMP_Text>();
+    }
 
     public void changeBoard()
     {
 
         physicalBoard = !physicalBoard;
+        Debug.Log(menuBoardText);
+
+
         Debug.Log("Physical board: " + physicalBoard);
+        if (physicalBoard) { menuBoardText.SetText("physical board (click to change)"); }
+        else
+        {
+            { menuBoardText.SetText("touch board (click to change)"); }
+        }
+
+
     }
 
 
