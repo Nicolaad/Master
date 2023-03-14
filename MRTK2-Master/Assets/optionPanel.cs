@@ -32,6 +32,7 @@ public class optionPanel : NetworkBehaviour
     }
 
     // disables player prefab rendering
+
     public void toggleAvatarOnOff()
     {
 
@@ -41,21 +42,37 @@ public class optionPanel : NetworkBehaviour
             // Check if the network object belongs to another player
             if (!networkClient.PlayerObject.GetComponent<NetworkObject>().IsLocalPlayer)
             {
-                // Disable the mesh renderer component
-                Renderer renderer = networkClient.PlayerObject.GetComponent<Renderer>();
-                if (renderer != null)
+                NetworkObject playerObject = networkClient.PlayerObject;
+
+                foreach (Transform child in playerObject.GetComponentInChildren<Transform>())
                 {
-                    Debug.Log("disabled avatar renderer");
-                    renderer.enabled = false;
+                    foreach (Transform grandchild in child.GetComponentInChildren<Transform>())
+                    {
+                        Debug.Log(child);
+                        Renderer renderer = grandchild.GetComponent<Renderer>();
+                        if (renderer != null)
+                        {
+                            if (renderer.enabled)
+                            {
+                                renderer.enabled = false;
+                            }
+                            else
+                            {
+                                renderer.enabled = true;
+                            }
+
+                        }
+                    }
+
+
+
                 }
-                else
-                {
-                    Debug.Log("enabled avatar renderer");
-                    renderer.enabled = true;
-                }
+
             }
         }
     }
+
+
 
     public void toggleBoardOnOff()
     {
@@ -94,6 +111,7 @@ public class optionPanel : NetworkBehaviour
 
         foreach (GameObject go in Resources.FindObjectsOfTypeAll(typeof(GameObject)) as GameObject[])
         {
+            objectsInScene.Add(go);
             /*if (EditorUtility.IsPersistent(go.transform.root.gameObject) && !(go.hideFlags == HideFlags.NotEditable || go.hideFlags == HideFlags.HideAndDontSave))
                 objectsInScene.Add(go);*/
         }
@@ -110,9 +128,8 @@ public class optionPanel : NetworkBehaviour
     public void changeBoardType()
     {
 
+
+
+
     }
-
-
-
-
 }
