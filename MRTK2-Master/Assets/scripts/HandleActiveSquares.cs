@@ -69,11 +69,15 @@ public class HandleActiveSquares : MonoBehaviour
 
     public static GameObject FindClosestPieceOnStartSquare(GameObject startSquare)
     {
-        GameObject[] piecesOnStartSquare = GameObject.FindGameObjectsWithTag("piece");
+        GameObject[] whites = GameObject.FindGameObjectsWithTag("whitepiece");
+        GameObject[] blacks = GameObject.FindGameObjectsWithTag("blackpiece");
+        GameObject[] pieces = whites.Concat(blacks).ToArray();
+        //GameObject[] piecesOnStartSquare = GameObject.FindGameObjectsWithTag("whitepiece");
+
         float closestDistance = Mathf.Infinity;
         GameObject closestPiece = null;
 
-        foreach (GameObject piece in piecesOnStartSquare)
+        foreach (GameObject piece in pieces)
         {
             if (piece.transform.parent.gameObject == startSquare)
             {
