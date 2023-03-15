@@ -114,96 +114,24 @@ public class optionPanel : NetworkBehaviour
                 foreach (MeshRenderer renderer in player.GetComponentsInChildren<MeshRenderer>())
                 {
                     renderer.enabled = !renderer.enabled;
+
+
                 }
-                try
+                foreach (SkinnedMeshRenderer head in player.GetComponentsInChildren<SkinnedMeshRenderer>())
                 {
-                    SkinnedMeshRenderer head = player.GetComponentInChildren<SkinnedMeshRenderer>();
                     if (head)
                     {
                         head.enabled = !head.enabled;
                     }
                 }
-                catch
-                {
-
-                };
-
 
 
             }
-        }
 
-    }
-    public void toggleAvatarRenderer()
-    {
-        {
-            Debug.Log("clicked avatar toggle button");
-            // Get all connected clients
-            foreach (GameObject go in GameObject.FindGameObjectsWithTag("Player"))
-            {
-                // Check if the network object belongs to another player
-                if (go.GetComponent<NetworkObject>().IsLocalPlayer)
-                {
-                    List<GameObject> objectsWithRenderers = getChildrenWithMeshRenderers(go);
-                    foreach (GameObject renderobject in objectsWithRenderers)
-                    {
-                        Debug.Log("objects with renderers:" + renderobject.name);
-                        if (renderobject.GetComponent<Renderer>().enabled)
-                        {
-                            renderobject.GetComponent<Renderer>().enabled = false;
-                        }
-                        else
-                        {
-                            renderobject.GetComponent<Renderer>().enabled = true;
-                        }
-                    }
-                }
-            }
         }
 
     }
 
-
-    // disables player prefab rendering
-
-    public void toggleAvatarOnOff()
-    {
-
-        // Get all connected clients
-        foreach (var networkClient in NetworkManager.Singleton.ConnectedClientsList)
-        {
-            // Check if the network object belongs to another player
-            if (!networkClient.PlayerObject.GetComponent<NetworkObject>().IsLocalPlayer)
-            {
-                NetworkObject playerObject = networkClient.PlayerObject;
-
-                foreach (Transform child in playerObject.GetComponentInChildren<Transform>())
-                {
-                    foreach (Transform grandchild in child.GetComponentInChildren<Transform>())
-                    {
-                        Debug.Log(child);
-                        Renderer renderer = grandchild.GetComponent<Renderer>();
-                        if (renderer != null)
-                        {
-                            if (renderer.enabled)
-                            {
-                                renderer.enabled = false;
-                            }
-                            else
-                            {
-                                renderer.enabled = true;
-                            }
-
-                        }
-                    }
-
-
-
-                }
-
-            }
-        }
-    }
 
 
 
