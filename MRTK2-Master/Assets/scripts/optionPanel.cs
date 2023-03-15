@@ -31,6 +31,54 @@ public class optionPanel : NetworkBehaviour
 
     }
 
+    public void toggleBoardRenderer()
+    {
+        Debug.Log("button clicked");
+
+        try
+        {
+            GameObject board = GameObject.Find("Board");
+            Debug.Log("found board");
+            MeshRenderer boardRenderer = board.GetComponent<MeshRenderer>();
+            if (boardRenderer.enabled)
+            {
+                boardRenderer.enabled = false;
+            }
+            else
+            {
+                boardRenderer.enabled = true;
+            }
+
+        }
+
+        catch
+        {
+            Debug.Log("could not find board");
+        }
+
+    }
+
+
+    public void togglePieceRenderer(string tag)
+    {
+        GameObject[] pieces = GameObject.FindGameObjectsWithTag(tag);
+        foreach (GameObject piece in pieces)
+        {
+            MeshRenderer pieceRenderer = piece.GetComponent<MeshRenderer>();
+            if (pieceRenderer)
+            {
+                if (pieceRenderer.enabled)
+                {
+                    pieceRenderer.enabled = false;
+                }
+                else
+                {
+                    pieceRenderer.enabled = true;
+                }
+            }
+        }
+    }
+
     // disables player prefab rendering
 
     public void toggleAvatarOnOff()

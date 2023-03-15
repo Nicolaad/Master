@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class HandleActiveSquares : MonoBehaviour
@@ -46,7 +47,10 @@ public class HandleActiveSquares : MonoBehaviour
 
     public void checkIfPieceCaptured(GameObject currentObject)
     {
-        GameObject[] pieces = GameObject.FindGameObjectsWithTag("piece");
+        GameObject[] whites = GameObject.FindGameObjectsWithTag("whitepiece");
+        GameObject[] blacks = GameObject.FindGameObjectsWithTag("blackpiece");
+        GameObject[] pieces = whites.Concat(blacks).ToArray();
+
         foreach (GameObject piece in pieces)
         {
             if (piece.transform.position == currentObject.transform.position && piece != currentObject)
