@@ -79,6 +79,76 @@ public class optionPanel : NetworkBehaviour
         }
     }
 
+
+
+    public static List<GameObject> getChildrenWithMeshRenderers(GameObject parent)
+    {
+        if (parent == null || parent.transform == null)
+        {
+            return new List<GameObject>();
+        }
+
+        List<GameObject> objectsWithMeshRenderers = new List<GameObject>();
+        foreach (Transform child in parent.transform)
+        {
+            MeshRenderer meshRenderer = child.GetComponent<MeshRenderer>();
+            if (meshRenderer)
+            {
+                objectsWithMeshRenderers.Add(child.gameObject);
+                getChildrenWithMeshRenderers(child.gameObject);
+            }
+        }
+        return objectsWithMeshRenderers;
+    }
+
+
+    public void ToggleMeshRenderers()
+    {
+
+        GameObject[] playerObjects = GameObject.FindGameObjectsWithTag("Player");
+        foreach (GameObject player in playerObjects)
+        {
+            if (!IsOwner)
+            {
+                Debug.Log(player.name);
+                foreach (MeshRenderer renderer in player.GetComponentsInChildren<MeshRenderer>())
+                {
+                    renderer.enabled = !renderer.enabled;
+                }
+            }
+        }
+
+    }
+    public void toggleAvatarRenderer()
+    {
+        {
+            Debug.Log("clicked avatar toggle button");
+            // Get all connected clients
+            foreach (GameObject go in GameObject.FindGameObjectsWithTag("Player"))
+            {
+                // Check if the network object belongs to another player
+                if (go.GetComponent<NetworkObject>().IsLocalPlayer)
+                {
+                    List<GameObject> objectsWithRenderers = getChildrenWithMeshRenderers(go);
+                    foreach (GameObject renderobject in objectsWithRenderers)
+                    {
+                        Debug.Log("objects with renderers:" + renderobject.name);
+                        if (renderobject.GetComponent<Renderer>().enabled)
+                        {
+                            renderobject.GetComponent<Renderer>().enabled = false;
+                        }
+                        else
+                        {
+                            renderobject.GetComponent<Renderer>().enabled = true;
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+
+
     // disables player prefab rendering
 
     public void toggleAvatarOnOff()

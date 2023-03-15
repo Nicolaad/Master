@@ -12,14 +12,18 @@ public class HidePlayerIfOwner : NetworkBehaviour
 
     void Start()
     {
-        if(IsOwner){
-            foreach(GameObject g in objectsToHide){
+        if (IsOwner)
+        {
+            foreach (GameObject g in objectsToHide)
+            {
                 g.SetActive(false);
             }
-            foreach(MeshRenderer m in meshesToHide){
+            foreach (MeshRenderer m in meshesToHide)
+            {
                 m.enabled = false;
             }
-            foreach(CapsuleCollider c in collidersToHide){
+            foreach (CapsuleCollider c in collidersToHide)
+            {
                 c.enabled = false;
             }
         }
