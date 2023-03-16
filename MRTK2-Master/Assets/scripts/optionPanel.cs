@@ -14,9 +14,11 @@ public class optionPanel : NetworkBehaviour
     bool renderBoard = true;
     bool isWhite = true;
 
+    [SerializeField] private GameObject OVRprefab;
 
-    private SerializeField[] boardPhysical;
-    private SerializeField[] touchBoard;
+    [SerializeField] private GameObject boardPhysical;
+
+    [SerializeField] private GameObject touchBoard;
 
     public static GameObject activeBoard;
     // Start is called before the first frame update
@@ -130,6 +132,18 @@ public class optionPanel : NetworkBehaviour
 
         }
 
+    }
+
+    public void togglePassthrough()
+    {
+        if (OVRManager.instance.isInsightPassthroughEnabled)
+        {
+            OVRManager.instance.isInsightPassthroughEnabled = false;
+        }
+        else
+        {
+            OVRManager.instance.isInsightPassthroughEnabled = true;
+        }
     }
 
 
