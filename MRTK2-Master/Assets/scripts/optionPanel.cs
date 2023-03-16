@@ -86,14 +86,15 @@ public class optionPanel : NetworkBehaviour
         {
             if (!IsOwner)
             {
+                GameObject otherPlayer = player;
                 Debug.Log(player.name);
-                foreach (MeshRenderer renderer in player.GetComponentsInChildren<MeshRenderer>())
+                foreach (MeshRenderer renderer in otherPlayer.GetComponentsInChildren<MeshRenderer>())
                 {
                     renderer.enabled = !renderer.enabled;
 
 
                 }
-                foreach (SkinnedMeshRenderer head in player.GetComponentsInChildren<SkinnedMeshRenderer>())
+                foreach (SkinnedMeshRenderer head in otherPlayer.GetComponentsInChildren<SkinnedMeshRenderer>())
                 {
                     if (head)
                     {
