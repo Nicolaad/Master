@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: TabletopMaster
-  productName: MRTK2-OpacityTest
+  productName: MRTK2-OpacityTest2
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -135,10 +135,7 @@ PlayerSettings:
     16:9: 1
     Others: 1
   bundleVersion: 25
-  preloadedAssets:
-  - {fileID: 11400000, guid: 525812292293e7f44ac6e69ad4b04ec4, type: 2}
-  - {fileID: -6936118467134263006, guid: ac3582204b9667b47b2ce5d72b5b97a1, type: 2}
-  - {fileID: -236806881652398569, guid: 4c922beb1d1ff7f4fa17404b03cd0a5f, type: 2}
+  preloadedAssets: []
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
