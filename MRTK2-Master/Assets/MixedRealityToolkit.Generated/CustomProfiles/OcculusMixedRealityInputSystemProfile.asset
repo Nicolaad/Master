@@ -93,7 +93,7 @@ MonoBehaviour:
     componentName: XR SDK Oculus Device Manager
     priority: 0
     runtimePlatform: 33
-    deviceManagerProfile: {fileID: 11400000, guid: 8f48cb9c26fb518499c65c9f9e8bb4ed, type: 2}
+    deviceManagerProfile: {fileID: 11400000, guid: 737a62026d6311744b7ddfff54087c39, type: 2}
   - componentType:
       reference: Microsoft.MixedReality.Toolkit.XRSDK.OpenXR.OpenXRDeviceManager,
         Microsoft.MixedReality.Toolkit.Providers.OpenXR
