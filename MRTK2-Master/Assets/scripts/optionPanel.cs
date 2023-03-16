@@ -7,32 +7,6 @@ using UnityEngine;
 public class optionPanel : NetworkBehaviour
 {
 
-
-    // default values
-    bool renderAvatar = true;
-    bool physicalBoard = true;
-    bool renderBoard = true;
-    bool isWhite = true;
-
-    [SerializeField] private GameObject OVRprefab;
-
-    [SerializeField] private GameObject boardPhysical;
-
-    [SerializeField] private GameObject touchBoard;
-
-    public static GameObject activeBoard;
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public void toggleBoardRenderer()
     {
         Debug.Log("button clicked");
@@ -110,7 +84,7 @@ public class optionPanel : NetworkBehaviour
         GameObject[] playerObjects = GameObject.FindGameObjectsWithTag("Player");
         foreach (GameObject player in playerObjects)
         {
-            if (IsOwner)
+            if (!IsOwner)
             {
                 Debug.Log(player.name);
                 foreach (MeshRenderer renderer in player.GetComponentsInChildren<MeshRenderer>())
@@ -200,11 +174,4 @@ public class optionPanel : NetworkBehaviour
         board.transform.Rotate(0, 180, 0);
     }
 
-    public void changeBoardType()
-    {
-
-
-
-
-    }
 }
