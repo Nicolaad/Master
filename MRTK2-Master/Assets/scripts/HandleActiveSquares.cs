@@ -6,46 +6,28 @@ using UnityEngine;
 public class HandleActiveSquares : MonoBehaviour
 {
 
-    public static GameObject startSquare;
-    public static GameObject targetSquare;
+
     public float speed = .2f;
 
-    void Update()
-    {
 
 
-        if (startSquare != null && targetSquare != null)
+    /*
+        public void movePiece(GameObject currentObject, GameObject targetSquare)
         {
-            GameObject piece = FindClosestPieceOnStartSquare(startSquare);
-            if (piece.transform.position != targetSquare.transform.position)
-            {
-                movePiece(piece, targetSquare);
-            }
-            else
-            {
-                piece.transform.parent = targetSquare.transform;
-                startSquare.GetComponent<Renderer>().enabled = false;
-                targetSquare.GetComponent<Renderer>().enabled = false;
-                startSquare = null;
-                targetSquare = null;
-            }
+            float step = speed * Time.deltaTime;
+            Vector3 targetPos = targetSquare.transform.position;
+            // Debug.Log(currentObject.name + " is closest");
+            currentObject.transform.position = Vector3.MoveTowards(currentObject.transform.position, targetPos, step);
 
         }
-    }
+    */
 
-
-    public void movePiece(GameObject currentObject, GameObject targetSquare)
+    public static bool SquareContainsPiece(GameObject square)
     {
-        float step = speed * Time.deltaTime;
-        Vector3 targetPos = targetSquare.transform.position;
-        // Debug.Log(currentObject.name + " is closest");
-        currentObject.transform.position = Vector3.MoveTowards(currentObject.transform.position, targetPos, step);
-        checkIfPieceCaptured(currentObject);
-
+        return square.transform.childCount > 0;
     }
 
-
-    public void checkIfPieceCaptured(GameObject currentObject)
+    public static GameObject getPieceInSquare(GameObject square)
     {
         GameObject[] whites = GameObject.FindGameObjectsWithTag("whitepiece");
         GameObject[] blacks = GameObject.FindGameObjectsWithTag("blackpiece");
@@ -53,18 +35,13 @@ public class HandleActiveSquares : MonoBehaviour
 
         foreach (GameObject piece in pieces)
         {
-            if (piece.transform.position == currentObject.transform.position && piece != currentObject)
+            if (piece.transform.position == square.transform.position)
             {
-                piece.SetActive(false);
+                return piece;
             }
         }
+        return null;
     }
-
-    public static bool SquareContainsPiece(GameObject square)
-    {
-        return square.transform.childCount > 0;
-    }
-
 
 
     public static GameObject FindClosestPieceOnStartSquare(GameObject startSquare)
