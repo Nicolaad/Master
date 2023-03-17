@@ -7,8 +7,8 @@ using UnityEngine;
 
 public class SquareHandler : MonoBehaviour, IMixedRealityPointerHandler
 {
-    private bool active = false;
 
+    [SerializeField] private float moveSpeed = .2f;
     private static GameObject startSquare;
     private static GameObject targetSquare;
     [SerializeField] private GameObject networkObjectParent;
@@ -34,19 +34,34 @@ public class SquareHandler : MonoBehaviour, IMixedRealityPointerHandler
             targetSquare.GetComponent<Renderer>().enabled = true;
             targetSquare.GetComponent<Renderer>().material.color = new Color(0, 0, 200, 1);
 
-
-
-            pieceToMove.transform.position = targetSquare.transform.position;
-            checkIfPieceCaptured(pieceToMove);
-
-            startSquare.GetComponent<Renderer>().enabled = false;
-            targetSquare.GetComponent<Renderer>().enabled = false;
+            var movePieceCoroutine = movePiece(pieceToMove, startSquare, targetSquare);
+            StartCoroutine(movePieceCoroutine);
             startSquare = null;
             targetSquare = null;
-
-
         }
-        active = true;
+    }
+
+    private void Update()
+    {
+
+    }
+
+    public IEnumerator movePiece(GameObject currentObject, GameObject startSquare, GameObject targetSquare)
+    {
+        Vector3 targetPos = targetSquare.transform.position;
+        Vector3 startPos = currentObject.transform.position;
+
+        //float distance = Vector3.Distance(startPos, targetPos);
+        //Debug.Log(distance);
+
+        while (currentObject.transform.position != targetPos)
+        {
+            currentObject.transform.position = Vector3.MoveTowards(currentObject.transform.position, targetPos, moveSpeed * Time.deltaTime);
+            yield return null;
+        }
+        startSquare.GetComponent<Renderer>().enabled = false;
+        targetSquare.GetComponent<Renderer>().enabled = false;
+        checkIfPieceCaptured(currentObject);
     }
 
     private void checkIfPieceCaptured(GameObject currentObject)
@@ -63,6 +78,8 @@ public class SquareHandler : MonoBehaviour, IMixedRealityPointerHandler
             }
         }
     }
+
+
 
 
     public void RequestOwnership()
