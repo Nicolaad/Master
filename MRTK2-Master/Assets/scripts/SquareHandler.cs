@@ -64,6 +64,8 @@ public class SquareHandler : MonoBehaviour, IMixedRealityPointerHandler
         checkIfPieceCaptured(currentObject);
     }
 
+
+    public AudioClip clip = null;
     private void checkIfPieceCaptured(GameObject currentObject)
     {
         GameObject[] whites = GameObject.FindGameObjectsWithTag("whitepiece");
@@ -75,8 +77,14 @@ public class SquareHandler : MonoBehaviour, IMixedRealityPointerHandler
             if (piece.transform.position == currentObject.transform.position && piece != currentObject)
             {
                 piece.SetActive(false);
+                Debug.Log("piece captured");
+                GameObject handleactivesquares = GameObject.Find("HandleActiveSquares");
+                AudioSource captureAudio = handleactivesquares.GetComponent<AudioSource>();
+                captureAudio.Play();
             }
         }
+
+
     }
 
 
