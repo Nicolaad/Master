@@ -3793,9 +3793,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5751a4d362b4620429aa0f865df325d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OVRprefab: {fileID: 2343937678421323989, guid: daf97b11da29e324696ea05e117236ea, type: 3}
-  boardPhysical: {fileID: 0}
-  touchBoard: {fileID: 0}
 --- !u!114 &1678914654
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4552,7 +4549,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2825653952072728440, guid: c75acfda3a3034b4c975df2f6feeae96, type: 3}
       propertyPath: m_Name
-      value: MixedRealityToolkit (Inactive)
+      value: MixedRealityToolkit
       objectReference: {fileID: 0}
     - target: {fileID: 2825653952072728442, guid: c75acfda3a3034b4c975df2f6feeae96, type: 3}
       propertyPath: m_RootOrder
