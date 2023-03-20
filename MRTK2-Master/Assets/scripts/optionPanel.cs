@@ -7,6 +7,9 @@ using UnityEngine;
 public class optionPanel : NetworkBehaviour
 {
 
+
+    private bool passThroughEnabled = true;
+    [SerializeField] private GameObject roomScene;
     public void toggleBoardRenderer()
     {
         Debug.Log("button clicked");
@@ -110,13 +113,24 @@ public class optionPanel : NetworkBehaviour
 
     public void togglePassthrough()
     {
-        if (OVRManager.instance.isInsightPassthroughEnabled)
+        Debug.Log("toggling passthrough");
+        Debug.Log(roomScene);
+        Debug.Log(passThroughEnabled);
+        if (passThroughEnabled)
         {
-            OVRManager.instance.isInsightPassthroughEnabled = false;
+
+            passThroughEnabled = false;
+            roomScene.SetActive(true);
+            try { OVRManager.instance.isInsightPassthroughEnabled = false; }
+            catch { Debug.Log("OVRManager not found"); };
         }
         else
         {
-            OVRManager.instance.isInsightPassthroughEnabled = true;
+
+            passThroughEnabled = true;
+            roomScene.SetActive(false);
+            try { OVRManager.instance.isInsightPassthroughEnabled = true; }
+            catch { Debug.Log("OVRManager not found"); }
         }
     }
 
