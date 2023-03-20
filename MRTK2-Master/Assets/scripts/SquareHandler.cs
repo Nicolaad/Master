@@ -76,7 +76,8 @@ public class SquareHandler : MonoBehaviour, IMixedRealityPointerHandler
         {
             if (piece.transform.position == currentObject.transform.position && piece != currentObject)
             {
-                piece.SetActive(false);
+                //piece.SetActive(false);
+                Destroy(piece);
                 Debug.Log("piece captured");
                 GameObject handleactivesquares = GameObject.Find("HandleActiveSquares");
                 AudioSource captureAudio = handleactivesquares.GetComponent<AudioSource>();
