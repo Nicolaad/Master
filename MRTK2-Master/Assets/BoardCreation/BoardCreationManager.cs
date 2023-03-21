@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using Microsoft.MixedReality.Toolkit.UI;
+using Unity.Netcode;
 using UnityEngine;
 
-public class BoardCreationManager : MonoBehaviour
+public class BoardCreationManager : NetworkBehaviour
 {
     public enum State { NotStarted, DesignateFirstCorner, DesignateSecondCorner, ConfirmMarkings, Finished }
-    public enum Input { Next, Back, Cancel }
+    public enum Input { Next, Back, Cancel, Reset }
 
     private State currentState = State.NotStarted;
 
@@ -36,6 +37,7 @@ public class BoardCreationManager : MonoBehaviour
             (State.DesignateSecondCorner, Input.Next) => State.ConfirmMarkings,
             (State.ConfirmMarkings, Input.Cancel) => State.NotStarted,
             (State.ConfirmMarkings, Input.Next) => State.Finished,
+            (State.Finished, Input.Reset) => State.NotStarted,
             _ => throw new System.NotSupportedException(
             $"{current} has no transition on {input}")
         };
@@ -69,6 +71,7 @@ public class BoardCreationManager : MonoBehaviour
     private void setupNotStartedState()
     {
         clearupGeneratedElements();
+        tryRemoveBoard();
         startButton.SetActive(true);
         return;
     }
@@ -137,6 +140,20 @@ public class BoardCreationManager : MonoBehaviour
 
     }
 
+    public void tryRemoveBoard()
+    {
+        GameObject board = GameObject.FindGameObjectWithTag("Board");
+        if (board && IsServer)
+        {
+            Destroy(board);
+        }
+        else
+        {
+            boardFactory.hideWrapper();
+
+        }
+    }
+
     //need functions without input as a wrapper, so that they can be used in unity events
     public void handleNextInput()
     {
@@ -150,6 +167,11 @@ public class BoardCreationManager : MonoBehaviour
     public void handleCancelInput()
     {
         changeAndUpdateState(Input.Cancel);
+    }
+
+    public void handleResetInput()
+    {
+        changeAndUpdateState(Input.Reset);
     }
 
 }
