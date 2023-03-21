@@ -113,6 +113,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 0.2
   networkObjectParent: {fileID: 1269230727697771846}
+  clip: {fileID: 0}
 --- !u!114 &108707437909310625
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -449,6 +450,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 0.2
   networkObjectParent: {fileID: 1269230727697771846}
+  clip: {fileID: 0}
 --- !u!114 &1514738929372561461
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -577,6 +579,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 0.2
   networkObjectParent: {fileID: 1269230727697771846}
+  clip: {fileID: 0}
 --- !u!114 &4115552887693835250
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -705,6 +708,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 0.2
   networkObjectParent: {fileID: 1269230727697771846}
+  clip: {fileID: 0}
 --- !u!114 &5858205475650945473
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -833,6 +837,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 0.2
   networkObjectParent: {fileID: 1269230727697771846}
+  clip: {fileID: 0}
 --- !u!114 &6087243970490853178
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -992,6 +997,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 0.2
   networkObjectParent: {fileID: 1269230727697771846}
+  clip: {fileID: 0}
 --- !u!114 &7845768982229151356
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1120,6 +1126,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 0.2
   networkObjectParent: {fileID: 1269230727697771846}
+  clip: {fileID: 0}
 --- !u!114 &8774585921416629838
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1278,6 +1285,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 0.2
   networkObjectParent: {fileID: 1269230727697771846}
+  clip: {fileID: 0}
 --- !u!1 &8801485478377129412
 GameObject:
   m_ObjectHideFlags: 0
@@ -1421,6 +1429,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 0.2
   networkObjectParent: {fileID: 1269230727697771846}
+  clip: {fileID: 0}
 --- !u!1 &8801485478762685618
 GameObject:
   m_ObjectHideFlags: 0
@@ -1564,6 +1573,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 0.2
   networkObjectParent: {fileID: 1269230727697771846}
+  clip: {fileID: 0}
 --- !u!1 &8801485478781172181
 GameObject:
   m_ObjectHideFlags: 0
@@ -1745,6 +1755,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 0.2
   networkObjectParent: {fileID: 1269230727697771846}
+  clip: {fileID: 0}
 --- !u!1 &8801485478933312424
 GameObject:
   m_ObjectHideFlags: 0
@@ -1926,6 +1937,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 0.2
   networkObjectParent: {fileID: 1269230727697771846}
+  clip: {fileID: 0}
 --- !u!1 &8801485479113464554
 GameObject:
   m_ObjectHideFlags: 0
@@ -2069,6 +2081,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 0.2
   networkObjectParent: {fileID: 1269230727697771846}
+  clip: {fileID: 0}
 --- !u!1 &8801485479165408316
 GameObject:
   m_ObjectHideFlags: 0
@@ -2212,6 +2225,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 0.2
   networkObjectParent: {fileID: 1269230727697771846}
+  clip: {fileID: 0}
 --- !u!1 &8801485479188984551
 GameObject:
   m_ObjectHideFlags: 0
@@ -2355,6 +2369,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 0.2
   networkObjectParent: {fileID: 1269230727697771846}
+  clip: {fileID: 0}
 --- !u!1 &8801485479223077400
 GameObject:
   m_ObjectHideFlags: 0
@@ -2536,6 +2551,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 0.2
   networkObjectParent: {fileID: 1269230727697771846}
+  clip: {fileID: 0}
 --- !u!1 &8801485479272074590
 GameObject:
   m_ObjectHideFlags: 0
@@ -2679,6 +2695,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 0.2
   networkObjectParent: {fileID: 1269230727697771846}
+  clip: {fileID: 0}
 --- !u!1 &8801485479415479369
 GameObject:
   m_ObjectHideFlags: 0
@@ -2822,6 +2839,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 0.2
   networkObjectParent: {fileID: 1269230727697771846}
+  clip: {fileID: 0}
 --- !u!1 &8801485479502187425
 GameObject:
   m_ObjectHideFlags: 0
@@ -2965,6 +2983,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 0.2
   networkObjectParent: {fileID: 1269230727697771846}
+  clip: {fileID: 0}
 --- !u!1 &8801485479563117602
 GameObject:
   m_ObjectHideFlags: 0
@@ -3108,6 +3127,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 0.2
   networkObjectParent: {fileID: 1269230727697771846}
+  clip: {fileID: 0}
 --- !u!1 &8801485479672762193
 GameObject:
   m_ObjectHideFlags: 0
@@ -3251,6 +3271,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 0.2
   networkObjectParent: {fileID: 1269230727697771846}
+  clip: {fileID: 0}
 --- !u!1 &8801485479710445873
 GameObject:
   m_ObjectHideFlags: 0
@@ -3535,6 +3556,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 0.2
   networkObjectParent: {fileID: 1269230727697771846}
+  clip: {fileID: 0}
 --- !u!1 &8801485479766952578
 GameObject:
   m_ObjectHideFlags: 0
@@ -3678,6 +3700,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 0.2
   networkObjectParent: {fileID: 1269230727697771846}
+  clip: {fileID: 0}
 --- !u!1 &8801485479794414730
 GameObject:
   m_ObjectHideFlags: 0
@@ -3821,6 +3844,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 0.2
   networkObjectParent: {fileID: 1269230727697771846}
+  clip: {fileID: 0}
 --- !u!1 &8801485479946558691
 GameObject:
   m_ObjectHideFlags: 0
@@ -3964,6 +3988,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 0.2
   networkObjectParent: {fileID: 1269230727697771846}
+  clip: {fileID: 0}
 --- !u!1 &8801485480059516758
 GameObject:
   m_ObjectHideFlags: 0
@@ -4107,6 +4132,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 0.2
   networkObjectParent: {fileID: 1269230727697771846}
+  clip: {fileID: 0}
 --- !u!1 &8801485480063197520
 GameObject:
   m_ObjectHideFlags: 0
@@ -4250,6 +4276,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 0.2
   networkObjectParent: {fileID: 1269230727697771846}
+  clip: {fileID: 0}
 --- !u!1 &8801485480067335835
 GameObject:
   m_ObjectHideFlags: 0
@@ -4393,6 +4420,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 0.2
   networkObjectParent: {fileID: 1269230727697771846}
+  clip: {fileID: 0}
 --- !u!1 &8801485480076663029
 GameObject:
   m_ObjectHideFlags: 0
@@ -4536,6 +4564,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 0.2
   networkObjectParent: {fileID: 1269230727697771846}
+  clip: {fileID: 0}
 --- !u!1 &8801485480094818184
 GameObject:
   m_ObjectHideFlags: 0
@@ -4679,6 +4708,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 0.2
   networkObjectParent: {fileID: 1269230727697771846}
+  clip: {fileID: 0}
 --- !u!1 &8801485480150224719
 GameObject:
   m_ObjectHideFlags: 0
@@ -4822,6 +4852,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 0.2
   networkObjectParent: {fileID: 1269230727697771846}
+  clip: {fileID: 0}
 --- !u!1 &8970023501802579427
 GameObject:
   m_ObjectHideFlags: 0
@@ -4935,6 +4966,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 0.2
   networkObjectParent: {fileID: 1269230727697771846}
+  clip: {fileID: 0}
 --- !u!114 &8970023501802579429
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9502,6 +9534,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 0.2
   networkObjectParent: {fileID: 0}
+  clip: {fileID: 0}
 --- !u!114 &6328718037607304800
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -112,4 +112,13 @@ public class BoardFactory : NetworkBehaviour
         wrapper.transform.rotation = Quaternion.identity;
         player.transform.SetParent(previousParent);
     }
+
+
+    public void hideWrapper()
+    {
+        // Moves wrapper away 
+        wrapper.transform.position = new Vector3(100, 100, 100);
+    }
+
 }
+
