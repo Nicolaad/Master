@@ -35,7 +35,7 @@ public class HandleActiveSquares : MonoBehaviour
 
         foreach (GameObject piece in pieces)
         {
-            if (piece.transform.position == square.transform.position)
+            if (piece.transform.position.x == square.transform.position.x && piece.transform.position.z == square.transform.position.z)
             {
                 return piece;
             }

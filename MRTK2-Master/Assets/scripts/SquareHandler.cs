@@ -22,7 +22,8 @@ public class SquareHandler : MonoBehaviour, IMixedRealityPointerHandler
     {
 
         Debug.Log(eventData.selectedObject);
-        if (lastPieceMoveTime +cooldownPeriod > Time.time){
+        if (lastPieceMoveTime + cooldownPeriod > Time.time)
+        {
             return;
         }
 
@@ -53,12 +54,12 @@ public class SquareHandler : MonoBehaviour, IMixedRealityPointerHandler
             lastPieceMoveTime = Time.time;
         }
 
-        
+
     }
 
     public IEnumerator movePiece(GameObject currentObject, GameObject startSquare, GameObject targetSquare)
     {
-        Vector3 targetPos = targetSquare.transform.position;
+        Vector3 targetPos = new Vector3(targetSquare.transform.position.x, currentObject.transform.position.y, targetSquare.transform.position.z);
         Vector3 startPos = currentObject.transform.position;
 
 
@@ -87,7 +88,7 @@ public class SquareHandler : MonoBehaviour, IMixedRealityPointerHandler
 
         foreach (GameObject piece in pieces)
         {
-            if (piece.transform.position == currentObject.transform.position && piece != currentObject)
+            if (piece.transform.position.x == currentObject.transform.position.x && piece.transform.position.z == currentObject.transform.position.z && piece != currentObject)
             {
                 //piece.SetActive(false);
                 piece.transform.position = new Vector3(100, -100, 100);
