@@ -153,8 +153,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 736619957252242162}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.433, y: 0, z: 0.178}
-  m_LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+  m_LocalPosition: {x: -0.4375, y: 0, z: 0.1875}
+  m_LocalScale: {x: 0.125, y: 0.12, z: 0.125}
   m_Children:
   - {fileID: 1266274581538998448}
   m_Father: {fileID: 7991079533973234520}
@@ -6165,7 +6165,7 @@ MonoBehaviour:
   rotateLerpTime: 0
   scaleLerpTime: 0
   enableConstraints: 1
-  constraintsManager: {fileID: 6271498789352121221}
+  constraintsManager: {fileID: 3357688413531558098}
   elasticsManager: {fileID: 0}
   onManipulationStarted:
     m_PersistentCalls:
@@ -7638,7 +7638,7 @@ MonoBehaviour:
   rotateLerpTime: 0
   scaleLerpTime: 0
   enableConstraints: 1
-  constraintsManager: {fileID: 4568994268559057795}
+  constraintsManager: {fileID: 4434775729642804310}
   elasticsManager: {fileID: 0}
   onManipulationStarted:
     m_PersistentCalls:
@@ -11610,7 +11610,7 @@ MonoBehaviour:
   rotateLerpTime: 0
   scaleLerpTime: 0
   enableConstraints: 1
-  constraintsManager: {fileID: 6271498789352121221}
+  constraintsManager: {fileID: 3072916005137223320}
   elasticsManager: {fileID: 0}
   onManipulationStarted:
     m_PersistentCalls:
