@@ -45,6 +45,10 @@ public class OwnershipManager : NetworkBehaviour
         networkObject.RemoveOwnership();
     }
 
+    public bool hasOwnershipOfObject(NetworkObject gameObject){
+        return gameObject.IsOwner;
+    }
+
 
 
 

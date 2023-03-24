@@ -13,6 +13,7 @@ public class SquareHandler : MonoBehaviour, IMixedRealityPointerHandler
     private static GameObject targetSquare;
     [SerializeField] private GameObject networkObjectParent;
 
+
     private static float cooldownPeriod = 0.5f;
 
     private static float lastPieceMoveTime = 0;
@@ -55,21 +56,19 @@ public class SquareHandler : MonoBehaviour, IMixedRealityPointerHandler
         
     }
 
-    private void Update()
-    {
-
-    }
-
     public IEnumerator movePiece(GameObject currentObject, GameObject startSquare, GameObject targetSquare)
     {
         Vector3 targetPos = targetSquare.transform.position;
         Vector3 startPos = currentObject.transform.position;
 
-        //float distance = Vector3.Distance(startPos, targetPos);
-        //Debug.Log(distance);
 
         while (currentObject.transform.position != targetPos)
-        {
+        {   
+            if(!OwnershipManager.Instance.hasOwnershipOfObject(networkObjectParent.GetComponent<NetworkObject>())){
+                yield return new WaitForSeconds(1);
+                OwnershipManager.Instance.RequestOwnershipOfObject(networkObjectParent);
+            }
+            
             currentObject.transform.position = Vector3.MoveTowards(currentObject.transform.position, targetPos, moveSpeed * Time.deltaTime);
             yield return null;
         }
