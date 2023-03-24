@@ -162,7 +162,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 25}
+  m_AnchoredPosition: {x: 0, y: 176}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &85549021
@@ -5040,7 +5040,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2825653952072728440, guid: c75acfda3a3034b4c975df2f6feeae96, type: 3}
       propertyPath: m_Name
-      value: MixedRealityToolkit (Inactive)
+      value: MixedRealityToolkit
       objectReference: {fileID: 0}
     - target: {fileID: 2825653952072728442, guid: c75acfda3a3034b4c975df2f6feeae96, type: 3}
       propertyPath: m_RootOrder
