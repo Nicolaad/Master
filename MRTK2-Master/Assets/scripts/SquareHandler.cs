@@ -13,10 +13,19 @@ public class SquareHandler : MonoBehaviour, IMixedRealityPointerHandler
     private static GameObject targetSquare;
     [SerializeField] private GameObject networkObjectParent;
 
+    private static float cooldownPeriod = 0.5f;
+
+    private static float lastPieceMoveTime = 0;
+
     public void OnPointerDown(MixedRealityPointerEventData eventData)
     {
 
         Debug.Log(eventData.selectedObject);
+        if (lastPieceMoveTime +cooldownPeriod > Time.time){
+            return;
+        }
+
+
         if (startSquare == null && HandleActiveSquares.getPieceInSquare(gameObject) != null)
         {
             RequestOwnership();
@@ -24,6 +33,7 @@ public class SquareHandler : MonoBehaviour, IMixedRealityPointerHandler
             startSquare = gameObject;
             startSquare.GetComponent<Renderer>().enabled = true;
             startSquare.GetComponent<Renderer>().material.color = new Color(200, 0, 0, 1);
+            lastPieceMoveTime = Time.time;
         }
         else if (targetSquare == null && startSquare != null)
         {
@@ -38,7 +48,11 @@ public class SquareHandler : MonoBehaviour, IMixedRealityPointerHandler
             StartCoroutine(movePieceCoroutine);
             startSquare = null;
             targetSquare = null;
+
+            lastPieceMoveTime = Time.time;
         }
+
+        
     }
 
     private void Update()

@@ -83,7 +83,6 @@ public class optionPanel : NetworkBehaviour
 
     public void ToggleMeshRenderers()
     {
-
         GameObject[] playerObjects = GameObject.FindGameObjectsWithTag("Player");
         foreach (GameObject player in playerObjects)
         {
@@ -103,12 +102,31 @@ public class optionPanel : NetworkBehaviour
                         head.enabled = !head.enabled;
                     }
                 }
-
-
             }
-
         }
-
+    }
+    public void enableMeshRenderers(bool activate){
+        {
+        GameObject[] playerObjects = GameObject.FindGameObjectsWithTag("Player");
+        foreach (GameObject player in playerObjects)
+        {
+            bool playerIsOwner = player.GetComponent<NetworkObject>().IsOwner;
+            if (!playerIsOwner)
+            {
+                foreach (MeshRenderer renderer in player.GetComponentsInChildren<MeshRenderer>())
+                {
+                    renderer.enabled = activate;
+                }
+                foreach (SkinnedMeshRenderer head in player.GetComponentsInChildren<SkinnedMeshRenderer>())
+                {
+                    if (head)
+                    {
+                        head.enabled = activate;
+                    }
+                }
+            }
+        }
+    }
     }
 
     public void togglePassthrough()
