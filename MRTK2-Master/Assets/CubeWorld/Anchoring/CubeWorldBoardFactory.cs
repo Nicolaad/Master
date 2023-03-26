@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Unity.Netcode;
 using TMPro;
 
 public class CubeWorldBoardFactory : MonoBehaviour
@@ -15,7 +14,7 @@ public class CubeWorldBoardFactory : MonoBehaviour
 
         GameObject newBoard = Instantiate(boardPrefab);
         newBoard.transform.parent = wrapper.transform;
-        RescaleWrapperContent();
+        //RescaleWrapperContent(); Should be little need to rescale, if everything is kept consistent, optionally, it should handle that some objects should be not scaled
         
         transformScaleWrapperAndPlayerToWorldCenter();
     }
