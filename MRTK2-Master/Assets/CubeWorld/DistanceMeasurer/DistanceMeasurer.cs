@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DistanceMeasurer : MonoBehaviour
 {
@@ -8,7 +9,7 @@ public class DistanceMeasurer : MonoBehaviour
 
     private Vector3 _lastPosition;
 
-    [SerializeField] private GameObject displayField;
+    [SerializeField] private Text displayField;
 
     private void Update() {
         if(transform == null){
@@ -29,9 +30,12 @@ public class DistanceMeasurer : MonoBehaviour
 
     private void updateDisplayedDistance(){
         Debug.Log(measureXZDistance());
+        displayField.text = measureXZDistance()*100 + "cm";
     }
 
     public void setTarget(Transform newTarget){
         target = newTarget;
     }
+
+
 }
