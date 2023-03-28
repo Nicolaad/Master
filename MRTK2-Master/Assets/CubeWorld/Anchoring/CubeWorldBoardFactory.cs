@@ -14,9 +14,11 @@ public class CubeWorldBoardFactory : MonoBehaviour
 
         GameObject newBoard = Instantiate(boardPrefab);
         newBoard.transform.parent = wrapper.transform;
-        //RescaleWrapperContent(); Should be little need to rescale, if everything is kept consistent, optionally, it should handle that some objects should be not scaled
         
-        transformScaleWrapperAndPlayerToWorldCenter();
+        //Should be little need to rescale or translate, if everything is kept consistent, optionally, it should handle that some objects should be not scaled
+        RescaleWrapperContent();
+        
+        //transformScaleWrapperAndPlayerToWorldCenter();
     }
 
 
@@ -49,7 +51,7 @@ public class CubeWorldBoardFactory : MonoBehaviour
             if (child != null)
             {
                 child.localPosition = Vector3.zero;
-                child.localScale = Vector3.one;
+                //child.localScale = Vector3.one;
                 child.localRotation = Quaternion.identity;
             }
         }

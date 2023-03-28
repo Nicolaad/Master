@@ -12,12 +12,13 @@ public class DistanceMeasurer : MonoBehaviour
     [SerializeField] private Text displayField;
 
     private void Update() {
-        if(transform == null){
+        if(target == null){
             return;
         }
 
-        if(_lastPosition != transform.position){
+        if(_lastPosition != target.position){
             updateDisplayedDistance();
+            _lastPosition = target.position;
         }
     }
 
@@ -30,6 +31,7 @@ public class DistanceMeasurer : MonoBehaviour
 
     private void updateDisplayedDistance(){
         Debug.Log(measureXZDistance());
+        
         displayField.text = measureXZDistance()*100 + "cm";
     }
 
