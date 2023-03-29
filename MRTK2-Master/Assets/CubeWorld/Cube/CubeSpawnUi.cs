@@ -30,6 +30,6 @@ public class CubeSpawnUi : MonoBehaviour
     }
 
     private void updateSizeLabel(){
-        instantiateButtonConfig.MainLabelText = "Spawn " + cubeSpawner.getCurrentCubeSize() + "cm";
+        instantiateButtonConfig.MainLabelText = "Spawn " + cubeSpawner.getCurrentCubeSize()*100 + "cm";
     }
 }
