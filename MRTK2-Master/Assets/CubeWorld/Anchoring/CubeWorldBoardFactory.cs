@@ -37,7 +37,7 @@ public class CubeWorldBoardFactory : MonoBehaviour
 
         board.transform.localScale = new Vector3(width, width, width);
 
-        Quaternion rotation = Quaternion.LookRotation((pA + (pB - pA) / 2) - center, Vector3.up);
+        Quaternion rotation = Quaternion.LookRotation(-((pA + (pB - pA) / 2) - center), Vector3.up);
         board.transform.SetPositionAndRotation(center, rotation);
     }
 

@@ -30,9 +30,13 @@ public class DistanceMeasurer : MonoBehaviour
 
 
     private void updateDisplayedDistance(){
-        Debug.Log(measureXZDistance());
+        float distance = measureXZDistance()*100;
+
+        if(distance < 0.001f){
+            distance = 0f;
+        }
         
-        displayField.text = measureXZDistance()*100 + "cm";
+        displayField.text = distance+  "cm";
     }
 
     public void setTarget(Transform newTarget){

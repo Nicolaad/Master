@@ -11,7 +11,7 @@ public class CubeSpawner : MonoBehaviour
 
     private int currentSelectedCubeIndex = 0;
     private List<GameObject> instantiatedCubes = new List<GameObject>();
-    private static float[] CUBE_SIZES = {0.01f, 0.015f, 0.02f, 00.3f, 0.04f, 0.05f, 0.06f, 0.07f, 0.08f, 0.09f, 0.10f};
+    private static float[] CUBE_SIZES = {0.01f, 0.015f, 0.02f, 0.03f, 0.04f, 0.05f, 0.06f, 0.07f, 0.08f, 0.09f, 0.10f};
     
 
     [SerializeField] private DistanceMeasurer measurePoint;
@@ -23,12 +23,14 @@ public class CubeSpawner : MonoBehaviour
 
         GameObject cube = Instantiate(cubePrefab, transform.position, transform.rotation);
         cube.transform.SetParent(this.transform);
-        cube.transform.localPosition= Vector3.one*(cubeSize/2f);
+        cube.transform.localPosition= new Vector3(-cubeSize/2, cubeSize/2, cubeSize/2);
         cube.transform.SetParent(null);
         
         //NB, important that the cube is not withinb a scaled parent!
         cube.transform.localScale = Vector3.one * (getCurrentCubeSize());
-        measurePoint.setTarget(cube.transform);
+
+        Transform target = cube.transform.GetChild(0); //unsafe, but should work as the cube is limited
+        measurePoint.setTarget(target);
         instantiatedCubes.Add(cube);
         
     }
