@@ -5,11 +5,14 @@ using UnityEngine.UI;
 
 public class DistanceMeasurer : MonoBehaviour
 {
-    [SerializeField] private Transform target;
+    private Transform target;
 
     private Vector3 _lastPosition;
 
     [SerializeField] private Text displayField;
+    
+    [SerializeField] private GameObject goalMarkerPrefab;
+    private GameObject _currentMarker;
 
     private void Update() {
         if(target == null){
@@ -43,5 +46,14 @@ public class DistanceMeasurer : MonoBehaviour
         target = newTarget;
     }
 
+    public void setMarker(Vector3 scale){
+        if(_currentMarker == null){
+            _currentMarker = Instantiate(goalMarkerPrefab, transform.position, transform.rotation);
+            _currentMarker.name = "TargetIndicator";
+            _currentMarker.transform.SetParent(this.transform);
+        }
+        _currentMarker.transform.localScale = new Vector3(scale.x, 1f, scale.z);
+        
+    }
 
 }

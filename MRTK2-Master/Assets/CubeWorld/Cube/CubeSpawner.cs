@@ -28,9 +28,10 @@ public class CubeSpawner : MonoBehaviour
         
         //NB, important that the cube is not withinb a scaled parent!
         cube.transform.localScale = Vector3.one * (getCurrentCubeSize());
-
+        cube.name = "Cube";
         Transform target = cube.transform.GetChild(0); //unsafe, but should work as the cube is limited
         measurePoint.setTarget(target);
+        measurePoint.setMarker(cube.transform.localScale);
         instantiatedCubes.Add(cube);
         
     }
