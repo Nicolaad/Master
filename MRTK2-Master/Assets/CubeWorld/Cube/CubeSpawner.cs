@@ -25,7 +25,6 @@ public class CubeSpawner : MonoBehaviour
         cube.transform.SetParent(this.transform);
         cube.transform.localPosition= new Vector3(-cubeSize/2, cubeSize/2, cubeSize/2);
         cube.transform.SetParent(null);
-        
         //NB, important that the cube is not withinb a scaled parent!
         cube.transform.localScale = Vector3.one * (getCurrentCubeSize());
         cube.name = "Cube";
