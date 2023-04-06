@@ -44,7 +44,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cubePrefab: {fileID: 6644566068642403942, guid: fcca45b6f6deafb46b0dd39f17fdddb4, type: 3}
-  currentSelectedCubeIndex: 10
+  spawnIndicatorPrefab: {fileID: 5652950671259631294, guid: 26c00013538f1fd4b9817120725f9370, type: 3}
+  _currentSpawnIndicator: {fileID: 0}
   measurePoint: {fileID: 8572604073751604017}
 --- !u!1 &1318803856541481582
 GameObject:

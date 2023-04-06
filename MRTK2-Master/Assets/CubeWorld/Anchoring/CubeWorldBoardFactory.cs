@@ -2,11 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class CubeWorldBoardFactory : MonoBehaviour
 {
 
     [SerializeField]private GameObject boardPrefab, wrapper, player;
+
+    [SerializeField] private Text anchorWidthDisplay;
 
     public void InstantiateBoardBasedOnCorners(Vector3 pA, Vector3 pC)
     {
@@ -39,6 +42,8 @@ public class CubeWorldBoardFactory : MonoBehaviour
 
         Quaternion rotation = Quaternion.LookRotation(-((pA + (pB - pA) / 2) - center), Vector3.up);
         board.transform.SetPositionAndRotation(center, rotation);
+        Debug.Log("Width: " + width);
+        anchorWidthDisplay.text = "Anchor width: "+width;
     }
 
 

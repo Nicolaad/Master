@@ -13,6 +13,7 @@ public class DistanceMeasurer : MonoBehaviour
     
     [SerializeField] private GameObject goalMarkerPrefab;
     private GameObject _currentMarker;
+    private GameObject _cubeSpawnMarker;
 
     private void Update() {
         if(target == null){
@@ -51,7 +52,6 @@ public class DistanceMeasurer : MonoBehaviour
             Destroy(_currentMarker);
         }
 
-
         _currentMarker = Instantiate(goalMarkerPrefab, transform.position, transform.rotation);
         _currentMarker.name = "TargetIndicator";
         _currentMarker.transform.SetParent(this.transform);
@@ -61,8 +61,7 @@ public class DistanceMeasurer : MonoBehaviour
         //changes it so that the marker is spawned on the front right corner, like the cubes. Maket it easier to measure from on a grid
         Vector3 startLocalPos = _currentMarker.transform.localPosition;
         Vector3 adjustedStartPos = new Vector3(startLocalPos.x - scale.x/2, startLocalPos.y, startLocalPos.z + scale.z/2);
-        _currentMarker.transform.localPosition = adjustedStartPos;
-        
+        _currentMarker.transform.localPosition = adjustedStartPos;  
     }
 
 }
