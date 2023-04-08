@@ -58,9 +58,9 @@ public class DistanceMeasurer : MonoBehaviour
 
         _currentMarker.transform.localScale = new Vector3(scale.x, 1f, scale.z);
 
-        //changes it so that the marker is spawned on the front right corner, like the cubes. Maket it easier to measure from on a grid
+        //changes it so that the marker is spawned on the top left right corner, like the cubes. Maket it easier to measure from on a grid
         Vector3 startLocalPos = _currentMarker.transform.localPosition;
-        Vector3 adjustedStartPos = new Vector3(startLocalPos.x - scale.x/2, startLocalPos.y, startLocalPos.z + scale.z/2);
+        Vector3 adjustedStartPos = new Vector3(startLocalPos.x + scale.x/2, startLocalPos.y, startLocalPos.z - scale.z/2);
         _currentMarker.transform.localPosition = adjustedStartPos;  
     }
 

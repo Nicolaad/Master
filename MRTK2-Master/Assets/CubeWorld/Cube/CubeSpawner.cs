@@ -26,7 +26,7 @@ public class CubeSpawner : MonoBehaviour
 
         GameObject cube = Instantiate(cubePrefab, transform.position, transform.rotation);
         cube.transform.SetParent(this.transform);
-        cube.transform.localPosition= new Vector3(-cubeSize/2, cubeSize/2, cubeSize/2);
+        cube.transform.localPosition= new Vector3(cubeSize/2, cubeSize/2, -cubeSize/2);
         cube.transform.SetParent(null);
         //NB, important that the cube is not withinb a scaled parent!
         cube.transform.localScale = Vector3.one * (getCurrentCubeSize());
@@ -79,7 +79,7 @@ public class CubeSpawner : MonoBehaviour
 
         //changes it so that the marker is spawned on the front right corner, like the cubes. Maket it easier to measure from on a grid
         Vector3 startLocalPos = _currentSpawnIndicator.transform.localPosition;
-        Vector3 adjustedStartPos = new Vector3(startLocalPos.x - scale.x/2, startLocalPos.y, startLocalPos.z + scale.z/2);
+        Vector3 adjustedStartPos = new Vector3(startLocalPos.x + scale.x/2, startLocalPos.y, startLocalPos.z - scale.z/2);
         _currentSpawnIndicator.transform.localPosition = adjustedStartPos;
         
     }
